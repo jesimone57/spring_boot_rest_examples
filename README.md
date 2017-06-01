@@ -20,10 +20,10 @@ nice error message indicating the endpoint is not in service.
 
 ## Hello Examples
 
-### Hello using a path variable
+### Hello using a name as a path variable
 [http://localhost:8080/hello/tom](http://localhost:8080/hello/tom)
 
-### Hello using a rquest paramter
+### Hello using a name as a request paramter
 [http://localhost:8080/hello2?name=fred](http://localhost:8080/hello2?name=fred)
 
 ## Time of the Day Examples

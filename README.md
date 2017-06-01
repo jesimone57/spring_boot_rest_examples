@@ -50,9 +50,9 @@ nice error message indicating the endpoint is not in service.
 [http://localhost:8080/primesinrange/10001/10099](http://localhost:8080/primesinrange/10001/10099)
 
 ### Find the prime factorization of the numbers in the given range
-[http://localhost:8080/factorsinrange/3/101](http://localhost:8080/primesinrange/3/101)
+[http://localhost:8080/factorsinrange/3/101](http://localhost:8080/factorsinrange/3/101)
 
-[http://localhost:8080/factorsinrange/10001/10099](http://localhost:8080/primesinrange/10001/10099)
+[http://localhost:8080/factorsinrange/10001/10099](http://localhost:8080/factorsinrange/10001/10099)
 
 ### Find the prime factors of a given number
 [http://localhost:8080/factors/100](http://localhost:8080/factors/100)

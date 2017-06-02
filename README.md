@@ -7,16 +7,17 @@ an API which does some simple things:
 3. Compute prime numbers and prime factors of a number
 4. Compute the Greatest Common Divisor (GCD) of two numbers
 5. Compute the Least Commonn Multiple (LCM) of two numbers
+6. Compute all Armstrong numbers in a given range (Note: Armstrong number: An n-digit number equal to the sum of the nth powers of its digits.)
 
 NOTE:
 If you try to hit an invalid endpoint, the Spring controller advice will produce a
 nice error message indicating the endpoint is not in service.
 
 ## To execute the code
-1. git clone the repo to your local machine
+1. git clone https://github.com/jesimone57/spring_boot_rest_examples.git
 2. mvn clean compile test
 3. mvn spring-boot:run
-4. Then try any of the following URLS:
+4. Then try any of the following URLs (Note: Spring Boot runs Tomcat server on localhost port 8080):
 
 ## Hello Examples
 
@@ -65,3 +66,6 @@ nice error message indicating the endpoint is not in service.
 ### Find the least common multiple (LCM)
 [hhttp://localhost:8080/lcm/10/15](http://localhost:8080/lcm/10/15)
 
+### Find all the armstrong numbers in the given range
+[http://localhost:8080/armstrong/1/10000](http://localhost:8080/armstrong/1/10000)
+[http://localhost:8080/armstrong/1/100000](http://localhost:8080/armstrong/1/100000)

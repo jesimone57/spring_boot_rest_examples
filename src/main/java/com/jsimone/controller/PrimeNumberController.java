@@ -1,5 +1,6 @@
 package com.jsimone.controller;
 
+import com.jsimone.constant.UrlPath;
 import com.jsimone.entity.PrimeNumbers;
 import com.jsimone.service.CommonNumberService;
 import com.jsimone.service.PrimeNumberService;
@@ -24,7 +25,7 @@ public class PrimeNumberController {
 	@Autowired
 	private CommonNumberService commonNumberService;
 
-	@RequestMapping(value = "/isprime/{number}", method = RequestMethod.GET)
+	@RequestMapping(value = UrlPath.URL_IS_PRIME, method = RequestMethod.GET)
 	public Boolean isPrimeNumber(@PathVariable Integer number) {
 		PrimeNumbers primes = new PrimeNumbers();
 		primes.setStart(number);
@@ -33,7 +34,7 @@ public class PrimeNumberController {
 		return (!primes.getPrimeNumbers().isEmpty());
 	}
 
-	@RequestMapping(value = "/primesinrange/{start}/{end}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value = UrlPath.URL_PRIMES_IN_RANGE, method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public PrimeNumbers getPrimesNumbersInRange(@PathVariable Integer start, @PathVariable Integer end) {
 		PrimeNumbers primes = new PrimeNumbers();
 		primes.setStart(start);
@@ -42,7 +43,7 @@ public class PrimeNumberController {
 		return primes;
 	}
 
-	@RequestMapping(value = "/factorsinrange/{start}/{end}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value = UrlPath.URL_FACTORS_IN_RANGE, method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public Map<Integer, List<Integer>> getFactorsInRange(@PathVariable int start, @PathVariable int end) {
 		Map<Integer, List<Integer>> map = new TreeMap<Integer, List<Integer>>();
 		for (int i = start; i <= end; i++) {
@@ -52,7 +53,7 @@ public class PrimeNumberController {
 		return map;
 	}
 
-	@RequestMapping(value = "/factors/{number}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value = UrlPath.URL_PRIME_FACTORIZATION, method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public List<Integer> getPrimeFactorization(@PathVariable int number) {
 		return primeNumberService.computePrimeFactorization(number);
 	}

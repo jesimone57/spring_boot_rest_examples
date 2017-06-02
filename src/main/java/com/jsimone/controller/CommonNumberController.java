@@ -1,5 +1,6 @@
 package com.jsimone.controller;
 
+import com.jsimone.constant.UrlPath;
 import com.jsimone.service.CommonNumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,7 +21,7 @@ public class CommonNumberController {
 	 * Also known as the Greatest Common Factor (GCF).
 	 * http://stackoverflow.com/questions/4201860/how-to-find-gcf-lcm-on-a-set-of-numbers
 	 */
-	@RequestMapping(value = "/gcd/{number1}/{number2}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value = UrlPath.URL_GCD, method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public int getGreatestCommonDivisor(@PathVariable int number1, @PathVariable int number2) {
 		return commonNumberService.computeGreatestCommonDivisor(number1, number2);
 	}
@@ -29,11 +30,10 @@ public class CommonNumberController {
 	 * The LCM is the product of all the common prime factors pairs and all the unique factors from the two given numbers.
 	 * http://stackoverflow.com/questions/4201860/how-to-find-gcf-lcm-on-a-set-of-numbers
 	 */
-	@RequestMapping(value = "/lcm/{number1}/{number2}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value = UrlPath.URL_LCM, method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public int getLeastCommonMultiple(@PathVariable int number1, @PathVariable int number2) {
 		return commonNumberService.computeLeastCommonMultiple(number1, number2);
 	}
-
 
 
 }

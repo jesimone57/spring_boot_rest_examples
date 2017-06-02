@@ -1,5 +1,6 @@
 package com.jsimone.controller;
 
+import com.jsimone.constant.UrlPath;
 import com.jsimone.entity.ClockTime;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,12 +16,12 @@ public class TimeOfTheDayController implements TimeOfTheDay {
 	private static String PATTERN = "MM.dd.yyyy HH:mm:ss";
 	private static SimpleDateFormat simpleDateFormatter = new SimpleDateFormat(PATTERN);
 
-	@RequestMapping(value = "/timeoftheday", method = RequestMethod.GET)
+	@RequestMapping(value = UrlPath.URL_TIME_OF_THE_DAY, method = RequestMethod.GET)
 	public String getTimeOfTheDay() {
 		return simpleDateFormatter.format(Calendar.getInstance().getTime());
 	}
 
-	@RequestMapping(value = "/timeofthedayxml", method = RequestMethod.GET, produces = {MediaType.APPLICATION_XML_VALUE})
+	@RequestMapping(value = UrlPath.URL_TIME_OF_THE_DAY_XML, method = RequestMethod.GET, produces = {MediaType.APPLICATION_XML_VALUE})
 	public ClockTime getTimeOfTheDayInXML() {
 		ClockTime clock = new ClockTime();
 		clock.setName("Big Ben");
@@ -28,7 +29,7 @@ public class TimeOfTheDayController implements TimeOfTheDay {
 		return clock;
 	}
 
-	@RequestMapping(value = "/timeofthedayjson", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value = UrlPath.URL_TIME_OF_THE_DAY_JSON, method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ClockTime getTimeOfTheDayInJSON() {
 		ClockTime clock = new ClockTime();
 		clock.setName("Big Ben");

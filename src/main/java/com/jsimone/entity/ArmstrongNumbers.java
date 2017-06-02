@@ -5,10 +5,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement(name = "primeNumbers")
-public class PrimeNumbers {
+@XmlRootElement(name = "armstrongNumbers")
+public class ArmstrongNumbers {
 	@XmlElement
-	private List<Integer> primes = new ArrayList<>();
+	private List<Integer> armstrongNumbers = new ArrayList<>();
 
 	@XmlElement
 	private Integer start;
@@ -16,12 +16,12 @@ public class PrimeNumbers {
 	@XmlElement
 	private Integer end;
 
-	public void setPrimeNumbers(List<Integer> primes) {
-		this.primes = primes;
+	public void setArmstrongNumbers(List<Integer> armstrongNumbers) {
+		this.armstrongNumbers = armstrongNumbers;
 	}
 
-	public List<Integer> getPrimeNumbers() {
-		return primes;
+	public List<Integer> getArmstrongNumbers() {
+		return armstrongNumbers;
 	}
 
 	public void setStart(Integer start) {

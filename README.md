@@ -7,7 +7,9 @@ an API which does some simple things:
 3. Compute prime numbers and prime factors of a number
 4. Compute the Greatest Common Divisor (GCD) of two numbers
 5. Compute the Least Commonn Multiple (LCM) of two numbers
-6. Compute all Armstrong numbers in a given range (Note: Armstrong number: An n-digit number equal to the sum of the nth powers of its digits.)
+6. Compute all Armstrong numbers in a given range 
+(Note: Armstrong number (also known as Narcistic numbers): An n-digit number equal to the sum of the nth powers of its digits.)
+Reference see [http://mathworld.wolfram.com/NarcissisticNumber.html](http://mathworld.wolfram.com/NarcissisticNumber.html)
 
 NOTE:
 If you try to hit an invalid endpoint, the Spring controller advice will produce a

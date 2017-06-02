@@ -24,4 +24,6 @@ public class UrlPath {
 	public static final String URL_PRIME_FACTORIZATION = "/factors/{number}";
 
 	public static final String URL_ARMSTRONG_NUMBERS_IN_RANGE = "/armstrong/{start}/{end}";
+
+	public static final String URL_PALINDROMIC_NUMBERS_IN_RANGE = "/palindromes/{start}/{end}";
 }

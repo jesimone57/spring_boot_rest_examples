@@ -10,6 +10,7 @@ an API which does some simple things:
 6. Compute all Armstrong numbers in a given range 
 (Note: Armstrong number (also known as Narcistic numbers): An n-digit number equal to the sum of the nth powers of its digits.)
 Reference see [http://mathworld.wolfram.com/NarcissisticNumber.html](http://mathworld.wolfram.com/NarcissisticNumber.html)
+7. Compute all palindromic numbers in a given range
 
 NOTE:
 If you try to hit an invalid endpoint, the Spring controller advice will produce a
@@ -77,3 +78,9 @@ nice error message indicating the endpoint is not in service.
 [http://localhost:8080/armstrong/1/10000](http://localhost:8080/armstrong/1/10000)
 
 [http://localhost:8080/armstrong/1/100000](http://localhost:8080/armstrong/1/100000)
+
+### Find all the palindromic numbers in the given range
+[http://localhost:8080/palindromes/0/100](http://localhost:8080/palindromes/0/100)
+
+[http://localhost:8080/palindromes/100/1000](http://localhost:8080/palindromes/100/1000)
+

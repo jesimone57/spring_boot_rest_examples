@@ -1,5 +1,7 @@
 package com.jsimone.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
@@ -11,13 +13,21 @@ public class PrimeNumbers {
 	private List<Integer> primes = new ArrayList<>();
 
 	@XmlElement
+	@JsonProperty
 	private Integer start;
 
 	@XmlElement
+	@JsonProperty
 	private Integer end;
+
+	@XmlElement
+	@JsonProperty
+	private Integer count;
+
 
 	public void setPrimeNumbers(List<Integer> primes) {
 		this.primes = primes;
+		this.count = primes.size();
 	}
 
 	public List<Integer> getPrimeNumbers() {
@@ -30,6 +40,10 @@ public class PrimeNumbers {
 
 	public void setEnd(Integer end) {
 		this.end = end;
+	}
+
+	public int getCount() {
+		return count;
 	}
 
 }

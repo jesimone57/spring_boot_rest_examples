@@ -13,6 +13,11 @@ NOTE:
 If you try to hit an invalid endpoint, the Spring controller advice will produce a
 nice error message indicating the endpoint is not in service.
 
+## Prerequisites needed to compile, test and execute the code
+* java 1.8
+* maven 3.3 or higher
+* git 
+
 ## To execute the code
 1. git clone https://github.com/jesimone57/spring_boot_rest_examples.git
 2. mvn clean compile test

@@ -73,4 +73,5 @@ nice error message indicating the endpoint is not in service.
 
 ### Find all the armstrong numbers in the given range
 [http://localhost:8080/armstrong/1/10000](http://localhost:8080/armstrong/1/10000)
+
 [http://localhost:8080/armstrong/1/100000](http://localhost:8080/armstrong/1/100000)

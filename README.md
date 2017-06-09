@@ -8,7 +8,7 @@ an API which does some simple things:
 4. Compute the Greatest Common Divisor (GCD) of two numbers
 5. Compute the Least Commonn Multiple (LCM) of two numbers
 6. Compute all Armstrong numbers in a given range 
-(Note: Armstrong number (also known as Narcistic numbers): An n-digit number equal to the sum of the nth powers of its digits.)
+(Note: Armstrong number (also known as Narcissistic numbers): An n-digit number equal to the sum of the nth powers of its digits.)
 Reference see [http://mathworld.wolfram.com/NarcissisticNumber.html](http://mathworld.wolfram.com/NarcissisticNumber.html)
 7. Compute all palindromic numbers in a given range
 8. Compute all amicable numbers in a given range
@@ -78,7 +78,7 @@ nice error message indicating the endpoint is not in service.
 ### Find the least common multiple (LCM)
 [hhttp://localhost:8080/lcm/10/15](http://localhost:8080/lcm/10/15)
 
-## Armstrong/Narcistic Numbers, Palindromic and Amicable Number Examples
+## Armstrong/Narcissistic Numbers, Palindromic and Amicable Number Examples
 
 ### Find all the armstrong numbers in the given range
 [http://localhost:8080/armstrong/1/10000](http://localhost:8080/armstrong/1/10000)

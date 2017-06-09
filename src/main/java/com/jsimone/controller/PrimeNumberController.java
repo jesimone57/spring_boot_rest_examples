@@ -43,7 +43,7 @@ public class PrimeNumberController {
 		return primes;
 	}
 
-	@RequestMapping(value = UrlPath.URL_FACTORS_IN_RANGE, method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value = UrlPath.URL_PRIME_FACTORS_IN_RANGE, method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public Map<Integer, List<Integer>> getFactorsInRange(@PathVariable int start, @PathVariable int end) {
 		Map<Integer, List<Integer>> map = new TreeMap<Integer, List<Integer>>();
 		for (int i = start; i <= end; i++) {

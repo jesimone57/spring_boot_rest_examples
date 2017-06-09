@@ -20,10 +20,11 @@ public class UrlPath {
 
 	public static final String URL_IS_PRIME = "/isprime/{number}";
 	public static final String URL_PRIMES_IN_RANGE = "/primesinrange/{start}/{end}";
-	public static final String URL_FACTORS_IN_RANGE = "/factorsinrange/{start}/{end}";
-	public static final String URL_PRIME_FACTORIZATION = "/factors/{number}";
+	public static final String URL_PRIME_FACTORS_IN_RANGE = "/primefactorsinrange/{start}/{end}";
+	public static final String URL_PRIME_FACTORIZATION = "/primefactors/{number}";
 
 	public static final String URL_ARMSTRONG_NUMBERS_IN_RANGE = "/armstrong/{start}/{end}";
+	public static final String URL_AMICABLE_NUMBERS_IN_RANGE = "/amicable/{start}/{end}";
 
 	public static final String URL_PALINDROMIC_NUMBERS_IN_RANGE = "/palindromes/{start}/{end}";
 }

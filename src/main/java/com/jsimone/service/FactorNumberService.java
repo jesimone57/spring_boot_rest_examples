@@ -34,4 +34,14 @@ public class FactorNumberService {
 		}
 	}
 
+	public boolean isPerfectNumbe(int number) {
+		List<Integer> factors = computeFactors(number);
+		int sumOfFactors = factors.stream().mapToInt(e -> e).sum();
+		if (sumOfFactors == number) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }

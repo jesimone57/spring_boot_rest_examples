@@ -10,6 +10,7 @@ import java.util.List;
 @XmlRootElement(name = "palindromicNumbers")
 public class PalindromicNumbers {
 	@XmlElement
+	@JsonProperty
 	private List<Integer> palindromicNumbers = new ArrayList<>();
 
 	@XmlElement
@@ -29,10 +30,6 @@ public class PalindromicNumbers {
 		this.count = palindromicNumbers.size();
 	}
 
-	public List<Integer> getPalindromicNumbers() {
-		return palindromicNumbers;
-	}
-
 	public void setStart(Integer start) {
 		this.start = start;
 	}
@@ -41,7 +38,4 @@ public class PalindromicNumbers {
 		this.end = end;
 	}
 
-	public int getCount() {
-		return count;
-	}
 }

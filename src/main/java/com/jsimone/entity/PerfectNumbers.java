@@ -7,11 +7,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement(name = "armstrongNumbers")
-public class ArmstrongNumbers {
+@XmlRootElement(name = "perfectNumbers")
+public class PerfectNumbers {
 	@XmlElement
 	@JsonProperty
-	private List<Integer> armstrongNumbers = new ArrayList<>();
+	private List<Integer> perfectNumbers = new ArrayList<>();
 
 	@XmlElement
 	@JsonProperty
@@ -25,9 +25,10 @@ public class ArmstrongNumbers {
 	@JsonProperty
 	private Integer count;
 
-	public void setArmstrongNumbers(List<Integer> armstrongNumbers) {
-		this.armstrongNumbers = armstrongNumbers;
-		this.count = armstrongNumbers.size();
+
+	public void setPerfectNumbers(List<Integer> perfectNumbers) {
+		this.perfectNumbers = perfectNumbers;
+		this.count = perfectNumbers.size();
 	}
 
 	public void setStart(Integer start) {
@@ -37,5 +38,5 @@ public class ArmstrongNumbers {
 	public void setEnd(Integer end) {
 		this.end = end;
 	}
-	
+
 }

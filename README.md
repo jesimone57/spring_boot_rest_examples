@@ -15,6 +15,10 @@ Reference see [http://mathworld.wolfram.com/NarcissisticNumber.html](http://math
 (Note: Amicable numbers are two different numbers so related that the sum of the proper divisors of each is equal to the other number. 
 (A proper divisor of a number is a positive factor of that number other than the number itself.)
 Reference see [http://mathworld.wolfram.com/AmicablePair.html](http://mathworld.wolfram.com/AmicablePair.html)
+8. Compute all perfect numbers in a given range
+(Note: Perfect number, a positive integer that is equal to the sum of its proper divisors. 
+The smallest perfect number is 6, which is the sum of 1, 2, and 3.)
+Reference see [http://mathworld.wolfram.com/PerfectNumber.html](http://mathworld.wolfram.com/PerfectNumber.html)
 
 NOTE:
 If you try to hit an invalid endpoint, the Spring controller advice will produce a
@@ -78,7 +82,7 @@ nice error message indicating the endpoint is not in service.
 ### Find the least common multiple (LCM)
 [hhttp://localhost:8080/lcm/10/15](http://localhost:8080/lcm/10/15)
 
-## Armstrong/Narcissistic Numbers, Palindromic and Amicable Number Examples
+## Armstrong/Narcissistic Numbers, Palindromic, Amicable and Perfect Number Examples
 
 ### Find all the armstrong numbers in the given range
 [http://localhost:8080/armstrong/1/10000](http://localhost:8080/armstrong/1/10000)
@@ -94,4 +98,9 @@ nice error message indicating the endpoint is not in service.
 [http://localhost:8080/amicable/200/300](http://localhost:8080/amicable/200/300)
 
 [http://localhost:8080/amicable/1/100000](http://localhost:8080/amicable/1/100000)
+
+### Find all the perfect numbers in the given range
+[http://localhost:8080/perfect/1/100](http://localhost:8080/perfect/1/100)
+
+[http://localhost:8080/perfect/5000/10000](http://localhost:8080/perfect/5000/10000)
 

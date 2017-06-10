@@ -39,7 +39,4 @@ public class AmicableNumbers {
 		this.end = end;
 	}
 
-	public Integer getCount() {
-		return count;
-	}
 }

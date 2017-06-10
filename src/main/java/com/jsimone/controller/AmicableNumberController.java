@@ -23,7 +23,8 @@ public class AmicableNumberController {
 	private FactorNumberService factorNumberService;
 
 	/**
-	 * A palindromic number is one which equals itself when reversed such as 12321 or 626 or 11.
+	 * An amicable number is one whose factors sum to second number, for which that second number's factor sum to the first number.
+	 * Hence the numbers are related in this way.
 	 */
 	@RequestMapping(value = UrlPath.URL_AMICABLE_NUMBERS_IN_RANGE, method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public AmicableNumbers getPalindromicNumbersInRange(@PathVariable int start, @PathVariable int end) {

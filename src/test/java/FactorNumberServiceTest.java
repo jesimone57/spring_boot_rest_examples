@@ -11,7 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Arrays;
 import java.util.List;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by jsimone on 6/9/17.
@@ -48,5 +50,19 @@ public class FactorNumberServiceTest {
 	public void findAmicableNumberOf284() throws Exception {
 		Integer amicableNumber = factorNumberService.computeAmicableNumber(284);
 		assertEquals(Integer.valueOf(220), amicableNumber);
+	}
+
+	@Test
+	public void testPerfectNumber6() throws Exception {
+		assertTrue(factorNumberService.isPerfectNumbe(6));
+		assertFalse(factorNumberService.isPerfectNumbe(10));
+		assertFalse(factorNumberService.isPerfectNumbe(12));
+	}
+
+	@Test
+	public void testPerfectNumber28() throws Exception {
+		assertTrue(factorNumberService.isPerfectNumbe(28));
+		assertFalse(factorNumberService.isPerfectNumbe(30));
+		assertFalse(factorNumberService.isPerfectNumbe(48));
 	}
 }

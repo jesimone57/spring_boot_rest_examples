@@ -11,6 +11,8 @@ an API which does some simple things:
 (Note: Armstrong number (also known as Narcissistic numbers): An n-digit number equal to the sum of the nth powers of its digits.)
 Reference see [http://mathworld.wolfram.com/NarcissisticNumber.html](http://mathworld.wolfram.com/NarcissisticNumber.html)
 7. Compute all palindromic numbers in a given range
+(Note: A palindromic number is a number (in some base ) that is the same when written forwards or backwards.)
+Reference see [http://mathworld.wolfram.com/PalindromicNumber.html](http://mathworld.wolfram.com/PalindromicNumber.html)
 8. Compute all amicable numbers in a given range
 (Note: Amicable numbers are two different numbers so related that the sum of the proper divisors of each is equal to the other number. 
 (A proper divisor of a number is a positive factor of that number other than the number itself.)

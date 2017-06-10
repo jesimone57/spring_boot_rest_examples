@@ -30,7 +30,7 @@ public class PrimeNumberController {
 		PrimeNumbers primes = new PrimeNumbers();
 		primes.setStart(number);
 		primes.setEnd(number);
-		primes.setPrimeNumbers(primeNumberService.computePrimes(number, number));
+		primes.setPrimeNumbers(primeNumberService.computePrimesInRange(number, number));
 		return (!primes.getPrimeNumbers().isEmpty());
 	}
 
@@ -39,12 +39,12 @@ public class PrimeNumberController {
 		PrimeNumbers primes = new PrimeNumbers();
 		primes.setStart(start);
 		primes.setEnd(end);
-		primes.setPrimeNumbers(primeNumberService.computePrimes(start, end));
+		primes.setPrimeNumbers(primeNumberService.computePrimesInRange(start, end));
 		return primes;
 	}
 
 	@RequestMapping(value = UrlPath.URL_PRIME_FACTORS_IN_RANGE, method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public Map<Integer, List<Integer>> getFactorsInRange(@PathVariable int start, @PathVariable int end) {
+	public Map<Integer, List<Integer>> getPrimeFactorsInRange(@PathVariable int start, @PathVariable int end) {
 		Map<Integer, List<Integer>> map = new TreeMap<Integer, List<Integer>>();
 		for (int i = start; i <= end; i++) {
 			List<Integer> factors = primeNumberService.computePrimeFactorization(i);

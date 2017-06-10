@@ -26,49 +26,49 @@ public class PrimeNumberServiceTest {
 	@Test
 	public void test_generatePrimesTo100() throws Exception {
 		Integer[] expected = {3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
-		List<Integer> list = primeNumberService.computePrimes(3, 100);
+		List<Integer> list = primeNumberService.computePrimesInRange(3, 100);
 		assertEquals("prime number list is incorrect", Arrays.asList(expected), list);
 	}
 
 	@Test
 	public void test_generatePrimes2to10() throws Exception {
 		Integer[] expected = {2, 3, 5, 7};
-		List<Integer> list = primeNumberService.computePrimes(2, 10);
+		List<Integer> list = primeNumberService.computePrimesInRange(2, 10);
 		assertEquals("prime number list is incorrect", Arrays.asList(expected), list);
 	}
 
 	@Test
 	public void test_generatePrimes2() throws Exception {
 		Integer[] expected = {2};
-		List<Integer> list = primeNumberService.computePrimes(2, 2);
+		List<Integer> list = primeNumberService.computePrimesInRange(2, 2);
 		assertEquals("prime number list is incorrect", Arrays.asList(expected), list);
 	}
 
 	@Test
 	public void test_generatePrimes1() throws Exception {
 		Integer[] expected = {2};
-		List<Integer> list = primeNumberService.computePrimes(1, 2);
+		List<Integer> list = primeNumberService.computePrimesInRange(1, 2);
 		assertEquals("prime number list is incorrect", Arrays.asList(expected), list);
 	}
 
 	@Test
 	public void test_generatePrimesBackwardsRange() throws Exception {
 		Integer[] expected = {3, 5};
-		List<Integer> list = primeNumberService.computePrimes(5, 3);
+		List<Integer> list = primeNumberService.computePrimesInRange(5, 3);
 		assertEquals("prime number list is incorrect", Arrays.asList(expected), list);
 	}
 
 	@Test
 	public void test_generatePrimesLessThan2() throws Exception {
 		Integer[] expected = {2, 3};
-		List<Integer> list = primeNumberService.computePrimes(-1, 3);
+		List<Integer> list = primeNumberService.computePrimesInRange(-1, 3);
 		assertEquals("prime number list is incorrect", Arrays.asList(expected), list);
 	}
 
 	@Test
 	public void test_generatePrimesLessThan1() throws Exception {
 		Integer[] expected = {};
-		List<Integer> list = primeNumberService.computePrimes(-1, 1);
+		List<Integer> list = primeNumberService.computePrimesInRange(-1, 1);
 		assertEquals("prime number list is incorrect", Arrays.asList(expected), list);
 	}
 
@@ -85,7 +85,7 @@ public class PrimeNumberServiceTest {
 	@Test
 	public void test_generatePrimes4_4() throws Exception {
 		Integer[] expected = {};
-		List<Integer> list = primeNumberService.computePrimes(4, 4);
+		List<Integer> list = primeNumberService.computePrimesInRange(4, 4);
 		assertEquals("prime number list is incorrect", Arrays.asList(expected), list);
 	}
 

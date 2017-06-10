@@ -13,7 +13,7 @@ import static java.lang.Math.sqrt;
 @Service
 public class PrimeNumberService {
 
-	public List<Integer> computePrimes(int start, int end) {
+	public List<Integer> computePrimesInRange(int start, int end) {
 		List<Integer> primes = new ArrayList<>();
 
 		// swap the range if reversed
@@ -42,14 +42,9 @@ public class PrimeNumberService {
 		}
 
 		for (int i = start; i <= end; i = i + 2) {
-			boolean hasFactor = false;
-			for (int j = 3; j <= sqrt(i); j = j + 2) {
-				if (i % j == 0) {
-					hasFactor = true;
-					break;
-				}
+			if (isPrimeNumber(i)) {
+				primes.add(i);
 			}
-			if (!hasFactor) primes.add(i);
 		}
 
 		return primes;
@@ -77,7 +72,7 @@ public class PrimeNumberService {
 	public List<Integer> computePrimeFactorization(int number) {
 		long maxPossibleFactor = Math.round(sqrt(Double.valueOf(number)));
 		//System.out.println("max possible factor="+maxPossibleFactor);
-		List<Integer> primes = computePrimes(2, (int) maxPossibleFactor);
+		List<Integer> primes = computePrimesInRange(2, (int) maxPossibleFactor);
 		//System.out.println(primes);
 
 		List<Integer> factors = new ArrayList<Integer>();

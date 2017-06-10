@@ -36,7 +36,7 @@ nice error message indicating the endpoint is not in service.
 2. mvn clean compile test
 3. mvn spring-boot:run
 4. For best results, use Google Chrome and install the JSONView chrome plugin to nicely format JSON results. 
-Firefox browser also does an excellent result of formatting the JSON results.
+Firefox browser also does an excellent job of formatting the JSON results.
 5. Then try any of the following URLs (Note: Spring Boot runs Tomcat server on localhost port 8080):
 
 ## Hello Examples

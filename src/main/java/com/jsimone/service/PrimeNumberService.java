@@ -70,12 +70,12 @@ public class PrimeNumberService {
 	}
 
 	public List<Integer> computePrimeFactorization(int number) {
-		long maxPossibleFactor = Math.round(sqrt(Double.valueOf(number)));
+		long maxPossibleFactor = Math.round(sqrt(number));
 		//System.out.println("max possible factor="+maxPossibleFactor);
 		List<Integer> primes = computePrimesInRange(2, (int) maxPossibleFactor);
 		//System.out.println(primes);
 
-		List<Integer> factors = new ArrayList<Integer>();
+		List<Integer> factors = new ArrayList<>();
 		for (Integer divisor : primes) {
 			//System.out.println("\tdivisor="+divisor+"   number%divisor="+number%divisor);
 			while (number % divisor == 0) {

@@ -30,15 +30,15 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	 */
 	@ExceptionHandler({Exception.class})
 	protected ResponseEntity<Object> handleDefaultException(RuntimeException exception, WebRequest request) {
-		String URIPath = request.getDescription(false).substring(4);
-		log.error("Runtime exception encountered for URIPath=" + URIPath + "  exception=" + exception.toString(), exception);
+		String uriPath = request.getDescription(false).substring(4);
+		log.error("Runtime exception encountered for URIPath=" + uriPath + "  exception=" + exception.toString(), exception);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
 		String message = exception.getMessage();
 		HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
-		ErrorResponseBody errorResponseBody = new ErrorResponseBody(status.value(), URIPath, message);
+		ErrorResponseBody errorResponseBody = new ErrorResponseBody(status.value(), uriPath, message);
 
 		return handleExceptionInternal(exception, errorResponseBody, headers, status, request);
 	}
@@ -56,10 +56,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	 */
 	@Override
 	protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-		String URIPath = request.getDescription(false).substring(4);
+		String uriPath = request.getDescription(false).substring(4);
 		String message = "The URL you have reached is not in service at this time";
-		ErrorResponseBody errorResponseBody = new ErrorResponseBody(status.value(), URIPath, message);
-		return new ResponseEntity<Object>(errorResponseBody, status);
+		ErrorResponseBody errorResponseBody = new ErrorResponseBody(status.value(), uriPath, message);
+		return new ResponseEntity<>(errorResponseBody, status);
 	}
 }
 

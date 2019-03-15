@@ -1,7 +1,6 @@
 package com.jsimone.service;
 
 import com.jsimone.app.Application;
-import com.jsimone.service.FactorNumberService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,15 +55,15 @@ public class FactorNumberServiceTest {
 
 	@Test
 	public void testPerfectNumber6() throws Exception {
-		assertTrue(factorNumberService.isPerfectNumbe(6));
-		assertFalse(factorNumberService.isPerfectNumbe(10));
-		assertFalse(factorNumberService.isPerfectNumbe(12));
+		assertTrue(factorNumberService.isPerfectNumber(6));
+		assertFalse(factorNumberService.isPerfectNumber(10));
+		assertFalse(factorNumberService.isPerfectNumber(12));
 	}
 
 	@Test
 	public void testPerfectNumber28() throws Exception {
-		assertTrue(factorNumberService.isPerfectNumbe(28));
-		assertFalse(factorNumberService.isPerfectNumbe(30));
-		assertFalse(factorNumberService.isPerfectNumbe(48));
+		assertTrue(factorNumberService.isPerfectNumber(28));
+		assertFalse(factorNumberService.isPerfectNumber(30));
+		assertFalse(factorNumberService.isPerfectNumber(48));
 	}
 }

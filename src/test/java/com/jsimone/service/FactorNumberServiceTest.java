@@ -1,3 +1,5 @@
+package com.jsimone.service;
+
 import com.jsimone.app.Application;
 import com.jsimone.service.FactorNumberService;
 import org.junit.Test;

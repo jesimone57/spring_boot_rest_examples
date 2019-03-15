@@ -1,3 +1,5 @@
+package com.jsimone.service;
+
 import com.jsimone.service.ArmstrongNumberService;
 import org.junit.Test;
 

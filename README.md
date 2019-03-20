@@ -100,9 +100,13 @@ Firefox browser also does an excellent job of formatting the JSON results.
 
 ### same as above with error checking on the range. Note: Error response if url parameters are missing or wrong.
 [http://localhost:8080/palindromes?start=100&end=1000](http://localhost:8080/palindromes?start=100&end=1000)
+
 [http://localhost:8080/palindromes](http://localhost:8080/palindromes)
+
 [http://localhost:8080/palindromes?start=-1&end=1000](http://localhost:8080/palindromes?start=-1&end=1000)
+
 [http://localhost:8080/palindromes?start=100&end=q](http://localhost:8080/palindromes?start=100&end=q)
+
 [http://localhost:8080/palindromes?start=10&end=1](http://localhost:8080/palindromes?start=10&end=1)
 
 ### Find all the amicable numbers in the given range

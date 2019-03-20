@@ -28,4 +28,5 @@ public class UrlPath {
     public static final String URL_PERFECT_NUMBERS_IN_RANGE = "/perfect/{start}/{end}";
 
     public static final String URL_PALINDROMIC_NUMBERS_IN_RANGE = "/palindromes/{start}/{end}";
+    public static final String URL_PALINDROMIC_NUMBERS = "/palindromes";
 }

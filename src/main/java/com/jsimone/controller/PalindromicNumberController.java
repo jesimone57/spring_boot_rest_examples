@@ -1,6 +1,5 @@
 package com.jsimone.controller;
 
-import com.jsimone.constant.UrlPath;
 import com.jsimone.entity.PalindromicNumbers;
 import com.jsimone.entity.Range;
 import com.jsimone.error.ErrorResponse;
@@ -18,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import static com.jsimone.constant.UrlPath.URL_PALINDROMIC_NUMBERS;
+import static com.jsimone.constant.UrlPath.URL_PALINDROMIC_NUMBERS_IN_RANGE;
+
 @RestController
 @RequestMapping("/")
 public class PalindromicNumberController {
@@ -28,7 +30,7 @@ public class PalindromicNumberController {
     /**
      * A palindromic number is one which equals itself when reversed such as 12321 or 626 or 11.
      */
-    @GetMapping(value = UrlPath.URL_PALINDROMIC_NUMBERS_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = URL_PALINDROMIC_NUMBERS_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
     public PalindromicNumbers getPalindromicNumbersInRange(@PathVariable int start, @PathVariable int end) {
         PalindromicNumbers numbers = new PalindromicNumbers();
         numbers.setStart(start);
@@ -37,7 +39,7 @@ public class PalindromicNumberController {
         return numbers;
     }
 
-    @GetMapping(value = "/palindromes", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = URL_PALINDROMIC_NUMBERS, produces = {MediaType.APPLICATION_JSON_VALUE})
     public PalindromicNumbers getPalindromicNumbersInRange2(@Valid Range range) {
         validateRange(range);
         PalindromicNumbers numbers = new PalindromicNumbers();

@@ -46,6 +46,12 @@ public class ControllerTestBase {
         assertEquals(expectedMediaType.toString(), responseEntity.getHeaders().getContentType().toString());
     }
 
+    protected void verifySuccessResponse(ResponseEntity<String> responseEntity, HttpStatus expectedStatus, MediaType expectedMediaType) {
+        assertTrue(responseEntity.getBody().length() > 0);
+        assertEquals(expectedStatus.value(), responseEntity.getStatusCodeValue());
+        assertEquals(expectedMediaType.toString(), responseEntity.getHeaders().getContentType().toString());
+    }
+
     protected ErrorResponse verifyErrorResponse(ResponseEntity<String> responseEntity, HttpStatus expectedStatus,
                                                 HttpMethod expectedMethod,
                                                 String expectedMessage) {

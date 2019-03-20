@@ -6,11 +6,10 @@ import javax.validation.constraints.PositiveOrZero;
 public class Range {
 
     @NotNull(message = "start must be a positive number or 0")
-    //@Pattern(regexp = "^\\d+$")
     @PositiveOrZero
     private Integer start;
+
     @NotNull(message = "end must be a positive number or 0")
-    //@Pattern(regexp = "^\\d+$")
     @PositiveOrZero
     private Integer end;
 

@@ -1,6 +1,5 @@
 package com.jsimone.service;
 
-import com.jsimone.service.PalindromicNumberService;
 import org.junit.Test;
 
 import java.util.List;
@@ -16,6 +15,14 @@ public class PalindromicNumberServiceTest {
 	public void palindromicNumber() throws Exception {
 		PalindromicNumberService palindromicNumberService = new PalindromicNumberService();
 		List<Integer> numbers = palindromicNumberService.computePalindromicNumbersInRange(10, 20);
+		assertEquals(1, numbers.size());
+		assertEquals(Integer.valueOf(11), numbers.get(0));
+	}
+
+	@Test
+	public void palindromicNumber2() throws Exception {
+		PalindromicNumberService palindromicNumberService = new PalindromicNumberService();
+		List<Integer> numbers = palindromicNumberService.computePalindromicNumbersInRange(20, 10);
 		assertEquals(1, numbers.size());
 		assertEquals(Integer.valueOf(11), numbers.get(0));
 	}

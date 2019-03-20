@@ -39,6 +39,7 @@ public class PalindromicNumberController {
 
     @GetMapping(value = "/palindromes", produces = {MediaType.APPLICATION_JSON_VALUE})
     public PalindromicNumbers getPalindromicNumbersInRange2(@Valid Range range) {
+        validateRange(range);
         PalindromicNumbers numbers = new PalindromicNumbers();
         numbers.setStart(range.getStart());
         numbers.setEnd(range.getEnd());
@@ -49,6 +50,20 @@ public class PalindromicNumberController {
     @ExceptionHandler({BindException.class})
     protected ResponseEntity<Object> handleBindException(BindException exception, HttpServletRequest request) {
         return buildBadRequestResponse(exception, request);
+    }
+
+
+    @ExceptionHandler({ErrorResponseException.class})
+    protected ResponseEntity<Object> handleBindException(ErrorResponseException exception, HttpServletRequest request) {
+        return buildBadRequestResponse(exception, request);
+    }
+
+    private void validateRange(Range range) {
+        if (range.getEnd() < range.getStart()) {
+            ErrorResponse errorResponse = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "/palindromes", "GET",
+                    String.format("Invalid range.  start value=%d must be before end value=%d.", range.getStart(), range.getEnd()));
+            throw new ErrorResponseException(errorResponse);
+        }
     }
 
 

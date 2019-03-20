@@ -42,4 +42,12 @@ public class PalindromicNumberControllerExceptionTest extends ControllerTestBase
                 makeList(new FieldError("start", "a", "Failed to convert property value of type 'java.lang.String' to required type 'java.lang.Integer' for property 'start'; nested exception is java.lang.NumberFormatException: For input string: \"a\"")));
 
     }
+
+    @Test
+    public void test4() throws Exception {
+        String url = "http://localhost:" + port + "/palindromes?start=6&end=5";
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+
+        verifyErrorResponse(response, HttpStatus.BAD_REQUEST, HttpMethod.GET, "Invalid range.  start value=6 must be before end value=5.");
+    }
 }

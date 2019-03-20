@@ -98,6 +98,9 @@ Firefox browser also does an excellent job of formatting the JSON results.
 
 [http://localhost:8080/palindromes/100/1000](http://localhost:8080/palindromes/100/1000)
 
+### same as above with error checking on the range. Error response if url parameter are missing or wrong.
+[http://localhost:8080/palindromes?start=100&end=1000](http://localhost:8080/palindromes?start=100&end=1000)
+
 ### Find all the amicable numbers in the given range
 [http://localhost:8080/amicable/200/300](http://localhost:8080/amicable/200/300)
 

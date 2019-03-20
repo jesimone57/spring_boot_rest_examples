@@ -2,7 +2,7 @@ package com.jsimone.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jsimone.app.Application;
-import com.jsimone.error.ErrorResponseBody;
+import com.jsimone.error.ErrorResponse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -36,9 +36,10 @@ public class HelloWorldControllerExceptionTest {
 
         ObjectMapper objectMapper = new ObjectMapper();
         String json = response.getBody();
-        ErrorResponseBody errorResponse = objectMapper.readValue(json, ErrorResponseBody.class);
+        ErrorResponse errorResponse = objectMapper.readValue(json, ErrorResponse.class);
         assertEquals(HttpStatus.NOT_FOUND.value(), errorResponse.getCode());
         assertEquals("/hello/", errorResponse.getPath());
+        assertEquals("GET", errorResponse.getMethod());
         assertEquals("The URL you have reached is not in service at this time", errorResponse.getMessage());
         assertTrue(errorResponse.getErrors().isEmpty());
     }

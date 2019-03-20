@@ -4,35 +4,62 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ErrorResponseBody {
+public class ErrorResponse {
 
     @JsonProperty("status_code")
     private int code;
     @JsonProperty("uri_path")
     private String path;
+    private String method;
     @JsonProperty("error_message")
     private String message;
     @JsonProperty("errors")
     private List<FieldError> errors = new ArrayList<>();
 
-    public ErrorResponseBody() {
+    public ErrorResponse() {
     }
 
-    public ErrorResponseBody(int code, String path, String message) {
+    public ErrorResponse(int code, String path, String method, String message) {
         this.code = code;
         this.path = path;
+        this.method = method;
         this.message = message;
     }
 
-    public ErrorResponseBody(int code, String path, String message, List<FieldError> errors) {
+    public ErrorResponse(int code, String path, String method, String message, List<FieldError> errors) {
         this.code = code;
         this.path = path;
+        this.method = method;
         this.message = message;
         this.errors = errors;
+    }
+
+    public ErrorResponse(int code, HttpServletRequest request, Exception exception) {
+        this.code = code;
+        this.path = request.getRequestURI();
+        this.message = exception.getMessage();
+        this.method = request.getMethod();
+        if (exception instanceof BindException || exception instanceof MethodArgumentNotValidException) {
+            addBindingResultErrors(((BindException) exception).getBindingResult());
+        }
+    }
+
+    private void addBindingResultErrors(BindingResult bindingResult) {
+        bindingResult
+                .getFieldErrors()
+                .forEach(fe -> {
+                    FieldError newFe = new FieldError(fe.getField(),
+                            fe.getRejectedValue() != null ? fe.getRejectedValue().toString() : null, fe.getDefaultMessage());
+                    errors.add(newFe);
+                });
     }
 
 
@@ -68,20 +95,28 @@ public class ErrorResponseBody {
         this.path = path;
     }
 
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof ErrorResponseBody)) {
+        if (!(obj instanceof ErrorResponse)) {
             return false;
         }
         if (this == obj) {
             return true;
         }
 
-        ErrorResponseBody rhs = (ErrorResponseBody) obj;
+        ErrorResponse rhs = (ErrorResponse) obj;
         return new EqualsBuilder()
                 .append(this.code, rhs.code)
                 .append(this.path, rhs.path)
+                .append(this.method, rhs.method)
                 .append(this.message, rhs.message)
                 .append(this.errors, rhs.errors)
                 .isEquals();
@@ -92,6 +127,7 @@ public class ErrorResponseBody {
         return new HashCodeBuilder(17, 37)
                 .append(code)
                 .append(path)
+                .append(method)
                 .append(message)
                 .append(errors)
                 .toHashCode();
@@ -102,6 +138,7 @@ public class ErrorResponseBody {
         return new ToStringBuilder(this)
                 .append("code", code)
                 .append("path", path)
+                .append("methodh", method)
                 .append("message", message)
                 .append("errors", errors)
                 .toString();

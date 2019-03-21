@@ -1,11 +1,14 @@
 package com.jsimone.controller;
 
 import com.jsimone.ControllerTestBase;
+import com.jsimone.error.ErrorResponse;
 import com.jsimone.error.FieldError;
 import org.junit.Test;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import static org.junit.Assert.assertTrue;
 
 
 public class PalindromicNumberControllerExceptionTest extends ControllerTestBase {
@@ -48,6 +51,7 @@ public class PalindromicNumberControllerExceptionTest extends ControllerTestBase
         String url = "http://localhost:" + port + "/palindromes?start=6&end=5";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
-        verifyErrorResponse(response, HttpStatus.BAD_REQUEST, HttpMethod.GET, "Invalid range.  start value=6 must be before end value=5.");
+        ErrorResponse er = verifyErrorResponse(response, HttpStatus.BAD_REQUEST, HttpMethod.GET, "Invalid range.  start value=6 must be before end value=5.");
+        assertTrue(er.getErrors().isEmpty());
     }
 }

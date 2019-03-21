@@ -40,10 +40,17 @@ public class ControllerTestBase {
     }
 
     protected void verifySuccessResponse(ResponseEntity<String> responseEntity, HttpStatus expectedStatus, MediaType expectedMediaType,
-                                         String expectedResponseBody) {
+                                              String expectedResponseBody) {
         assertEquals(expectedResponseBody, responseEntity.getBody());
         assertEquals(expectedStatus.value(), responseEntity.getStatusCodeValue());
         assertEquals(expectedMediaType.toString(), responseEntity.getHeaders().getContentType().toString());
+    }
+
+    protected void verifySuccessResponse(ResponseEntity<String> responseEntity, HttpStatus expectedStatus, String expectedContentType,
+                                         String expectedResponseBody) {
+        assertEquals(expectedResponseBody, responseEntity.getBody());
+        assertEquals(expectedStatus.value(), responseEntity.getStatusCodeValue());
+        assertEquals(expectedContentType, responseEntity.getHeaders().getContentType().toString());
     }
 
     protected void verifySuccessResponse(ResponseEntity<String> responseEntity, HttpStatus expectedStatus, MediaType expectedMediaType) {
@@ -60,7 +67,7 @@ public class ControllerTestBase {
 
         assertEquals(expectedStatus.value(), errorResponse.getCode());
         assertEquals(expectedMethod.toString(), errorResponse.getMethod());
-        assertTrue(errorResponse.getMessage().startsWith(expectedMessage));
+        assertTrue("message does not start with: "+expectedMessage, errorResponse.getMessage().startsWith(expectedMessage));
         assertEquals(expectedStatus, responseEntity.getStatusCode());
         assertEquals(EXPECTED_MEDIA_TYPE, responseEntity.getHeaders().get(CONTENT_TYPE).toString());
 

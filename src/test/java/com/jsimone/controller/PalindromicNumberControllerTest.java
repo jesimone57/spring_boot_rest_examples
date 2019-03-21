@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 public class PalindromicNumberControllerTest extends ControllerTestBase {
 
     @Test
-    public void test1() throws Exception {
+    public void test1() {
         String url = "http://localhost:" + port + "/palindromes/1/10";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
@@ -18,7 +18,7 @@ public class PalindromicNumberControllerTest extends ControllerTestBase {
     }
 
     @Test
-    public void test2() throws Exception {
+    public void test2() {
         String url = "http://localhost:" + port + "/palindromes?start=1&end=10";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 

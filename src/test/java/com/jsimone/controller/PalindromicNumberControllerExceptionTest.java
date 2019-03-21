@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 public class PalindromicNumberControllerExceptionTest extends ControllerTestBase {
 
     @Test
-    public void test1() throws Exception {
+    public void test1() {
         String url = "http://localhost:" + port + "/palindromes/";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
@@ -25,7 +25,7 @@ public class PalindromicNumberControllerExceptionTest extends ControllerTestBase
     }
 
     @Test
-    public void test2() throws Exception {
+    public void test2() {
         String url = "http://localhost:" + port + "/palindromes?start=1";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
@@ -36,7 +36,7 @@ public class PalindromicNumberControllerExceptionTest extends ControllerTestBase
     }
 
     @Test
-    public void test3() throws Exception {
+    public void test3() {
         String url = "http://localhost:" + port + "/palindromes?start=a&end=5";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
@@ -47,7 +47,7 @@ public class PalindromicNumberControllerExceptionTest extends ControllerTestBase
     }
 
     @Test
-    public void test4() throws Exception {
+    public void test4() {
         String url = "http://localhost:" + port + "/palindromes?start=6&end=5";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 

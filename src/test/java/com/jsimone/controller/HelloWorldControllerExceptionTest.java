@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 public class HelloWorldControllerExceptionTest extends ControllerTestBase {
 
     @Test
-    public void test1() throws Exception {
+    public void test1() {
         String url = "http://localhost:" + port + "/hello/";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 

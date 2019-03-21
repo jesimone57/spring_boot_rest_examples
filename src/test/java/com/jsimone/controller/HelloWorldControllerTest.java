@@ -10,7 +10,7 @@ public class HelloWorldControllerTest extends ControllerTestBase {
     private static String CONTENT_TYPE = "text/plain;charset=UTF-8";
 
     @Test
-    public void test1() throws Exception {
+    public void test1() {
         String url = "http://localhost:" + port + "/hello/tom";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
@@ -18,7 +18,7 @@ public class HelloWorldControllerTest extends ControllerTestBase {
     }
 
     @Test
-    public void test2() throws Exception {
+    public void test2() {
         String url = "http://localhost:" + port + "/hello2?name=fred";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 

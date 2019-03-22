@@ -41,6 +41,9 @@ Firefox browser also does an excellent job of formatting the JSON results.
 
 ## Hello Examples
 
+### Swagger API Documentation
+[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
 ### Hello using a name as a path variable
 [http://localhost:8080/hello/tom](http://localhost:8080/hello/tom)
 

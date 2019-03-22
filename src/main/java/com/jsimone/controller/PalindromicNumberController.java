@@ -6,6 +6,7 @@ import com.jsimone.error.ErrorResponse;
 import com.jsimone.exception.ErrorResponseException;
 import com.jsimone.service.PalindromicNumberService;
 import com.jsimone.util.JsonUtil;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,7 @@ public class PalindromicNumberController {
     /**
      * A palindromic number is one which equals itself when reversed such as 12321 or 626 or 11.
      */
+    @ApiOperation(value = "Find palindromic numbers in the given range. A palindromic number is one which equals itself when reversed such as 12321 or 626 or 11.")
     @GetMapping(value = URL_PALINDROMIC_NUMBERS_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
     public PalindromicNumbers getPalindromicNumbersInRange(@PathVariable int start, @PathVariable int end) {
         PalindromicNumbers numbers = new PalindromicNumbers();
@@ -39,6 +41,7 @@ public class PalindromicNumberController {
         return numbers;
     }
 
+    @ApiOperation(value = "Find palindromic numbers in the given range. A palindromic number is one which equals itself when reversed such as 12321 or 626 or 11.")
     @GetMapping(value = URL_PALINDROMIC_NUMBERS, produces = {MediaType.APPLICATION_JSON_VALUE})
     public PalindromicNumbers getPalindromicNumbersInRange2(@Valid Range range) {
         validateRange(range);

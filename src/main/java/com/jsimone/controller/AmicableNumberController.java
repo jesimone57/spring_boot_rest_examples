@@ -3,6 +3,7 @@ package com.jsimone.controller;
 import com.jsimone.constant.UrlPath;
 import com.jsimone.entity.AmicableNumbers;
 import com.jsimone.service.FactorNumberService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +27,9 @@ public class AmicableNumberController {
      * An amicable number is one whose factors sum to second number, for which that second number's factor sum to the first number.
      * Hence the numbers are related in this way.
      */
+    @ApiOperation(value = "Find amicable number pairs in the given range.  An amicable number is one whose factors sum to second number, for which that second number's factor sum to the first number.")
     @GetMapping(value = UrlPath.URL_AMICABLE_NUMBERS_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public AmicableNumbers getPalindromicNumbersInRange(@PathVariable int start, @PathVariable int end) {
+    public AmicableNumbers getAmicableNumbersInRange(@PathVariable int start, @PathVariable int end) {
         List<Set<Integer>> listofSets = new ArrayList<>();
 
         AmicableNumbers amicableNumbers = new AmicableNumbers();

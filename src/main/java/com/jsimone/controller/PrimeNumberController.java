@@ -1,6 +1,7 @@
 package com.jsimone.controller;
 
 import com.jsimone.constant.UrlPath;
+import com.jsimone.entity.NumbersMapResponse;
 import com.jsimone.entity.NumbersResponse;
 import com.jsimone.entity.NumbersType;
 import com.jsimone.service.CommonNumberService;
@@ -20,7 +21,7 @@ import java.util.TreeMap;
 
 @RestController
 @Api(value = "Prime Numbers API",
-        description = "A prime number is a number that has no other divisors besides only 1 and itself",
+        description = "A prime number is a whole number greater than 1 whose only factors are 1 and itself. A factor is a whole numbers that can be divided evenly into another number. ",
         tags = "Prime Numbers API")
 @RequestMapping("/")
 public class PrimeNumberController {
@@ -53,13 +54,17 @@ public class PrimeNumberController {
 
     @ApiOperation(value = "Find all prime factors for each number in the given range")
     @GetMapping(value = UrlPath.URL_PRIME_FACTORS_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Map<Integer, List<Integer>> getPrimeFactorsInRange(@PathVariable int start, @PathVariable int end) {
+    public NumbersMapResponse getPrimeFactorsInRange(@PathVariable int start, @PathVariable int end) {
         Map<Integer, List<Integer>> map = new TreeMap<>();
         for (int i = start; i <= end; i++) {
             List<Integer> factors = primeNumberService.computePrimeFactorization(i);
             map.put(i, factors);
         }
-        return map;
+        NumbersMapResponse response = new NumbersMapResponse();
+        response.setStart(start);
+        response.setEnd(end);
+        response.setNumbers(map, NumbersType.PrimeFactors);
+        return response;
     }
 
     @ApiOperation(value = "Find all prime factors of the given number")

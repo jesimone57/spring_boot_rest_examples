@@ -1,6 +1,7 @@
 package com.jsimone.error;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModel;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
+@ApiModel(description = "Class representing the API error response.")
 public class ErrorResponse {
 
     @JsonProperty("status_code")

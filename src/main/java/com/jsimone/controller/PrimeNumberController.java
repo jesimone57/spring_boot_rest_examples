@@ -4,6 +4,7 @@ import com.jsimone.constant.UrlPath;
 import com.jsimone.entity.PrimeNumbers;
 import com.jsimone.service.CommonNumberService;
 import com.jsimone.service.PrimeNumberService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,6 +18,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 @RestController
+@Api(value = "Prime Numbers API",
+        description = "A prime number is a number that has no other divisors besides only 1 and itself",
+        tags = "Prime Numbers API")
 @RequestMapping("/")
 public class PrimeNumberController {
 

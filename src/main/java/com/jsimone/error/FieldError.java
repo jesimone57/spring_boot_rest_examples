@@ -1,15 +1,12 @@
 package com.jsimone.error;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModel;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-/**
- * Holder class for a of pair strings used in error messages.
- *
- * @author jsimone
- */
+@ApiModel(description = "Class representing individual field errors from an API error response.")
 public class FieldError {
 
     @JsonProperty("error_field")

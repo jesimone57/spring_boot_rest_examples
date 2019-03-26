@@ -1,8 +1,11 @@
 package com.jsimone.entity;
 
+import io.swagger.annotations.ApiModel;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 
+@ApiModel(description = "Class representing a range of numbers.")
 public class Range {
 
     @NotNull(message = "start must be a positive number or 0")

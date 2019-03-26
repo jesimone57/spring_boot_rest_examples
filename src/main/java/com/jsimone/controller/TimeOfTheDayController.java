@@ -2,6 +2,7 @@ package com.jsimone.controller;
 
 import com.jsimone.constant.UrlPath;
 import com.jsimone.entity.ClockTime;
+import io.swagger.annotations.Api;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 @RestController
+@Api(description = "Time of day examples", tags="Time of the Day API")
 @RequestMapping("/")
 public class TimeOfTheDayController implements TimeOfTheDay {
 	private static String pattern = "MM.dd.yyyy HH:mm:ss";

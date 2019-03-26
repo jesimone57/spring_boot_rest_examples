@@ -1,9 +1,11 @@
 package com.jsimone.controller;
 
 import com.jsimone.constant.UrlPath;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Api(description = "Hello by name", tags="Hello API")
 @RequestMapping("/")
 public class HelloWorldController {
 

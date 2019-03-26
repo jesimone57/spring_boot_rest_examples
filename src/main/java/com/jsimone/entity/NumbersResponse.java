@@ -7,11 +7,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement(name = "palindromicNumbers")
-public class PalindromicNumbers {
+@XmlRootElement(name = "numbers")
+public class NumbersResponse {
 	@XmlElement
 	@JsonProperty
-	private List<Integer> palindromicNumbers = new ArrayList<>();
+	private List<Integer> numbers = new ArrayList<>();
 
 	@XmlElement
 	@JsonProperty
@@ -25,9 +25,14 @@ public class PalindromicNumbers {
 	@JsonProperty
 	private Integer count;
 
-	public void setPalindromicNumbers(List<Integer> palindromicNumbers) {
-		this.palindromicNumbers = palindromicNumbers;
-		this.count = palindromicNumbers.size();
+	@XmlElement
+	@JsonProperty
+	private NumbersType type;
+
+	public void setNumbers(List<Integer> numbers, NumbersType type) {
+		this.numbers = numbers;
+		this.count = numbers.size();
+		this.type = type;
 	}
 
 	public void setStart(Integer start) {
@@ -36,6 +41,10 @@ public class PalindromicNumbers {
 
 	public void setEnd(Integer end) {
 		this.end = end;
+	}
+
+	public List<Integer> getNumbers() {
+		return this.numbers;
 	}
 
 }

@@ -1,7 +1,8 @@
 package com.jsimone.controller;
 
 import com.jsimone.constant.UrlPath;
-import com.jsimone.entity.PrimeNumbers;
+import com.jsimone.entity.NumbersResponse;
+import com.jsimone.entity.NumbersType;
 import com.jsimone.service.CommonNumberService;
 import com.jsimone.service.PrimeNumberService;
 import io.swagger.annotations.Api;
@@ -33,20 +34,20 @@ public class PrimeNumberController {
     @ApiOperation(value = "Is the given number a prime number?")
     @GetMapping(value = UrlPath.URL_IS_PRIME)
     public Boolean isPrimeNumber(@PathVariable Integer number) {
-        PrimeNumbers primes = new PrimeNumbers();
-        primes.setStart(number);
-        primes.setEnd(number);
-        primes.setPrimeNumbers(primeNumberService.computePrimesInRange(number, number));
-        return (!primes.getPrimeNumbers().isEmpty());
+        NumbersResponse response = new NumbersResponse();
+        response.setStart(number);
+        response.setEnd(number);
+        response.setNumbers(primeNumberService.computePrimesInRange(number, number), NumbersType.Prime);
+        return (!response.getNumbers().isEmpty());
     }
 
     @ApiOperation(value = "Find all prime numbers in the given range")
     @GetMapping(value = UrlPath.URL_PRIMES_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public PrimeNumbers getPrimesNumbersInRange(@PathVariable Integer start, @PathVariable Integer end) {
-        PrimeNumbers primes = new PrimeNumbers();
+    public NumbersResponse getPrimesNumbersInRange(@PathVariable Integer start, @PathVariable Integer end) {
+        NumbersResponse primes = new NumbersResponse();
         primes.setStart(start);
         primes.setEnd(end);
-        primes.setPrimeNumbers(primeNumberService.computePrimesInRange(start, end));
+        primes.setNumbers(primeNumberService.computePrimesInRange(start, end), NumbersType.Prime);
         return primes;
     }
 

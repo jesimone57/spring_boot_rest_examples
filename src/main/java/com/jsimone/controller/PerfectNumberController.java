@@ -1,7 +1,8 @@
 package com.jsimone.controller;
 
 import com.jsimone.constant.UrlPath;
-import com.jsimone.entity.PerfectNumbers;
+import com.jsimone.entity.NumbersResponse;
+import com.jsimone.entity.NumbersType;
 import com.jsimone.service.FactorNumberService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,19 +28,19 @@ public class PerfectNumberController {
 
     @ApiOperation(value = "Find all perfect numbers in the given range")
     @GetMapping(value = UrlPath.URL_PERFECT_NUMBERS_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public PerfectNumbers getPerfectNumbersInRange(@PathVariable int start, @PathVariable int end) {
+    public NumbersResponse getPerfectNumbersInRange(@PathVariable int start, @PathVariable int end) {
         List<Integer> list = new ArrayList<>();
 
-        PerfectNumbers perfectNumbers = new PerfectNumbers();
-        perfectNumbers.setStart(start);
-        perfectNumbers.setEnd(end);
+        NumbersResponse response = new NumbersResponse();
+        response.setStart(start);
+        response.setEnd(end);
         for (int i = start; i < end; i++) {
             if (factorNumberService.isPerfectNumber(i)) {
                 list.add(i);
             }
         }
-        perfectNumbers.setPerfectNumbers(list);
-        return perfectNumbers;
+        response.setNumbers(list, NumbersType.Perfect);
+        return response;
     }
 
 }

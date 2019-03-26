@@ -1,6 +1,7 @@
 package com.jsimone.controller;
 
-import com.jsimone.entity.PalindromicNumbers;
+import com.jsimone.entity.NumbersResponse;
+import com.jsimone.entity.NumbersType;
 import com.jsimone.entity.Range;
 import com.jsimone.error.ErrorResponse;
 import com.jsimone.exception.ErrorResponseException;
@@ -37,23 +38,23 @@ public class PalindromicNumberController {
      */
     @ApiOperation(value = "Find all palindromic numbers in the given range")
     @GetMapping(value = URL_PALINDROMIC_NUMBERS_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public PalindromicNumbers getPalindromicNumbersInRange(@PathVariable int start, @PathVariable int end) {
-        PalindromicNumbers numbers = new PalindromicNumbers();
-        numbers.setStart(start);
-        numbers.setEnd(end);
-        numbers.setPalindromicNumbers(palindromicNumberService.computePalindromicNumbersInRange(start, end));
-        return numbers;
+    public NumbersResponse getPalindromicNumbersInRange(@PathVariable int start, @PathVariable int end) {
+        NumbersResponse response = new NumbersResponse();
+        response.setStart(start);
+        response.setEnd(end);
+        response.setNumbers(palindromicNumberService.computePalindromicNumbersInRange(start, end), NumbersType.Palindrome);
+        return response;
     }
 
     @ApiOperation(value = "Find all palindromic numbers in the given range")
     @GetMapping(value = URL_PALINDROMIC_NUMBERS, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public PalindromicNumbers getPalindromicNumbersInRange2(@Valid Range range) {
+    public NumbersResponse getPalindromicNumbersInRange2(@Valid Range range) {
         validateRange(range);
-        PalindromicNumbers numbers = new PalindromicNumbers();
-        numbers.setStart(range.getStart());
-        numbers.setEnd(range.getEnd());
-        numbers.setPalindromicNumbers(palindromicNumberService.computePalindromicNumbersInRange(range.getStart(), range.getEnd()));
-        return numbers;
+        NumbersResponse response = new NumbersResponse();
+        response.setStart(range.getStart());
+        response.setEnd(range.getEnd());
+        response.setNumbers(palindromicNumberService.computePalindromicNumbersInRange(range.getStart(), range.getEnd()), NumbersType.Palindrome);
+        return response;
     }
 
     @ExceptionHandler({BindException.class})

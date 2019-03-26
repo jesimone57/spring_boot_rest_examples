@@ -6,12 +6,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-@XmlRootElement(name = "armstrongNumbers")
-public class ArmstrongNumbers {
+@XmlRootElement(name = "numbers")
+public class NumbersSetResponse {
 	@XmlElement
 	@JsonProperty
-	private List<Integer> armstrongNumbers = new ArrayList<>();
+	private List<Set<Integer>> numbers = new ArrayList<>();
 
 	@XmlElement
 	@JsonProperty
@@ -25,9 +26,14 @@ public class ArmstrongNumbers {
 	@JsonProperty
 	private Integer count;
 
-	public void setArmstrongNumbers(List<Integer> armstrongNumbers) {
-		this.armstrongNumbers = armstrongNumbers;
-		this.count = armstrongNumbers.size();
+	@XmlElement
+	@JsonProperty
+	private NumbersType type;
+
+	public void setNumbers(List<Set<Integer>> numbers, NumbersType type) {
+		this.numbers = numbers;
+		this.count = numbers.size();
+		this.type = type;
 	}
 
 	public void setStart(Integer start) {
@@ -37,5 +43,5 @@ public class ArmstrongNumbers {
 	public void setEnd(Integer end) {
 		this.end = end;
 	}
-	
+
 }

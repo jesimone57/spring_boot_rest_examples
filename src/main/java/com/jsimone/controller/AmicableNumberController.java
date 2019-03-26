@@ -1,7 +1,8 @@
 package com.jsimone.controller;
 
 import com.jsimone.constant.UrlPath;
-import com.jsimone.entity.AmicableNumbers;
+import com.jsimone.entity.NumbersSetResponse;
+import com.jsimone.entity.NumbersType;
 import com.jsimone.service.FactorNumberService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,12 +34,12 @@ public class AmicableNumberController {
      */
     @ApiOperation(value = "Find amicable number pairs in the given range")
     @GetMapping(value = UrlPath.URL_AMICABLE_NUMBERS_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public AmicableNumbers getAmicableNumbersInRange(@PathVariable int start, @PathVariable int end) {
+    public NumbersSetResponse getAmicableNumbersInRange(@PathVariable int start, @PathVariable int end) {
         List<Set<Integer>> listofSets = new ArrayList<>();
 
-        AmicableNumbers amicableNumbers = new AmicableNumbers();
-        amicableNumbers.setStart(start);
-        amicableNumbers.setEnd(end);
+        NumbersSetResponse response = new NumbersSetResponse();
+        response.setStart(start);
+        response.setEnd(end);
         for (int i = start; i < end; i++) {
             Integer result = factorNumberService.computeAmicableNumber(i);
             if (result != null) {
@@ -50,8 +51,8 @@ public class AmicableNumberController {
                 }
             }
         }
-        amicableNumbers.setAmicableNumbers(listofSets);
-        return amicableNumbers;
+        response.setNumbers(listofSets, NumbersType.Amicable);
+        return response;
     }
 
 }

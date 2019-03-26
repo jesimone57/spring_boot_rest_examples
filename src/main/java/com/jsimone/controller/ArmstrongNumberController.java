@@ -1,7 +1,8 @@
 package com.jsimone.controller;
 
 import com.jsimone.constant.UrlPath;
-import com.jsimone.entity.ArmstrongNumbers;
+import com.jsimone.entity.NumbersResponse;
+import com.jsimone.entity.NumbersType;
 import com.jsimone.service.ArmstrongNumberService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,12 +32,12 @@ public class ArmstrongNumberController {
      */
     @ApiOperation(value = "Find amstrong numbers in the given range")
     @GetMapping(value = UrlPath.URL_ARMSTRONG_NUMBERS_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ArmstrongNumbers getArmstrongNumbersInRange(@PathVariable int start, @PathVariable int end) {
-        ArmstrongNumbers numbers = new ArmstrongNumbers();
-        numbers.setStart(start);
-        numbers.setEnd(end);
-        numbers.setArmstrongNumbers(armstrongNumberService.computeArmstrongNumbersInRange(start, end));
-        return numbers;
+    public NumbersResponse getArmstrongNumbersInRange(@PathVariable int start, @PathVariable int end) {
+        NumbersResponse response = new NumbersResponse();
+        response.setStart(start);
+        response.setEnd(end);
+        response.setNumbers(armstrongNumberService.computeArmstrongNumbersInRange(start, end), NumbersType.Armstrong);
+        return response;
     }
 
 }

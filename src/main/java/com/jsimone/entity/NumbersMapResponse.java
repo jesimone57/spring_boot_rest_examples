@@ -30,6 +30,12 @@ public class NumbersMapResponse {
 	@JsonProperty
 	private NumbersType type;
 
+	public NumbersMapResponse() {}
+	public NumbersMapResponse(Integer start, Integer end) {
+		this.start = start;
+		this.end = end;
+	}
+
 	public void setNumbers(Map<Integer, List<Integer>> numbers, NumbersType type) {
 		this.numbers = numbers;
 		this.count = numbers.size();

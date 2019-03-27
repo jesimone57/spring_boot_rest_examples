@@ -38,6 +38,10 @@ nice error message indicating the endpoint is not in service.
 4. For best results, use Google Chrome and install the JSONView chrome plugin to nicely format JSON results. 
 Firefox browser also does an excellent job of formatting the JSON results.
 5. Then try any of the following URLs (Note: Spring Boot runs Tomcat server on localhost port 8080):
+6. To run all the Karate API automation tests: 
+    1. remove @Ignore from KarateTest.java
+    2. start server:   mvn spring-boot:run
+    3. run KarateTest in an IDE
 
 ## Hello Examples
 

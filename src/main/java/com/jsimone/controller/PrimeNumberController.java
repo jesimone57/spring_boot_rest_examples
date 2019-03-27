@@ -35,19 +35,14 @@ public class PrimeNumberController {
     @ApiOperation(value = "Is the given number a prime number?")
     @GetMapping(value = UrlPath.URL_IS_PRIME)
     public Boolean isPrimeNumber(@PathVariable Integer number) {
-        NumbersResponse response = new NumbersResponse();
-        response.setStart(number);
-        response.setEnd(number);
-        response.setNumbers(primeNumberService.computePrimesInRange(number, number), NumbersType.Prime);
-        return (!response.getNumbers().isEmpty());
+        List<Integer> result = primeNumberService.computePrimesInRange(number, number);
+        return (!result.isEmpty());
     }
 
     @ApiOperation(value = "Find all prime numbers in the given range")
     @GetMapping(value = UrlPath.URL_PRIMES_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
     public NumbersResponse getPrimesNumbersInRange(@PathVariable Integer start, @PathVariable Integer end) {
-        NumbersResponse primes = new NumbersResponse();
-        primes.setStart(start);
-        primes.setEnd(end);
+        NumbersResponse primes = new NumbersResponse(start, end);
         primes.setNumbers(primeNumberService.computePrimesInRange(start, end), NumbersType.Prime);
         return primes;
     }
@@ -60,9 +55,7 @@ public class PrimeNumberController {
             List<Integer> factors = primeNumberService.computePrimeFactorization(i);
             map.put(i, factors);
         }
-        NumbersMapResponse response = new NumbersMapResponse();
-        response.setStart(start);
-        response.setEnd(end);
+        NumbersMapResponse response = new NumbersMapResponse(start, end);
         response.setNumbers(map, NumbersType.PrimeFactors);
         return response;
     }

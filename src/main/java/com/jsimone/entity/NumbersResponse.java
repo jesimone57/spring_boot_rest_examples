@@ -29,6 +29,12 @@ public class NumbersResponse {
 	@JsonProperty
 	private NumbersType type;
 
+	public NumbersResponse() {}
+	public NumbersResponse(Integer start, Integer end) {
+		this.start = start;
+		this.end = end;
+	}
+
 	public void setNumbers(List<Integer> numbers, NumbersType type) {
 		this.numbers = numbers;
 		this.count = numbers.size();

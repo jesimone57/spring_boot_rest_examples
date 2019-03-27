@@ -2,7 +2,6 @@ package com.jsimone.config;
 
 import com.fasterxml.classmate.TypeResolver;
 import com.jsimone.error.ErrorResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -21,11 +20,9 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @EnableSwagger2
 public class SwaggerConfig extends WebMvcConfigurationSupport {
 
-    @Autowired
-    private TypeResolver typeResolver;
 
     @Bean
-    public Docket api() {
+    public Docket api(TypeResolver typeResolver) {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.jsimone.controller"))
@@ -38,6 +35,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
     private ApiInfo metaData() {

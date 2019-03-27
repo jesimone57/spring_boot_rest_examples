@@ -24,10 +24,12 @@ import java.util.TimeZone;
  * objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
  */
 public class JsonUtil {
+
+    private JsonUtil() {}
     //implicit val formats = DefaultFormats
 
-    private final static String W3C_UTC_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
-    private final static ObjectMapper objectMapper = new ObjectMapper();
+    private static final String W3C_UTC_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     // configure the object mapper
     static {

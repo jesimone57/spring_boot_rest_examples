@@ -3,7 +3,7 @@ package com.jsimone.exception;
 import com.jsimone.error.ErrorResponse;
 
 public class ErrorResponseException extends RuntimeException {
-    private ErrorResponse errorResponse;
+    private ErrorResponse errorResponse = null;
 
     public ErrorResponseException() {
     }

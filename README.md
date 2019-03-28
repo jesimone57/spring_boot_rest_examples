@@ -37,16 +37,17 @@ nice error message indicating the endpoint is not in service.
 3. mvn spring-boot:run
 4. For best results, use Google Chrome and install the JSONView chrome plugin to nicely format JSON results. 
 Firefox browser also does an excellent job of formatting the JSON results.
-5. Then try any of the following URLs (Note: Spring Boot runs Tomcat server on localhost port 8080):
+5. Try any of the URLs below (Note: Spring Boot runs Tomcat server on localhost port 8080).
 6. To run all the Karate API automation tests: 
     1. remove @Ignore from KarateTest.java
     2. start server:   mvn spring-boot:run
     3. run KarateTest in an IDE
+ 
+
+## Swagger API Documentation
+[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 ## Hello Examples
-
-### Swagger API Documentation
-[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 ### Hello using a name as a path variable
 [http://localhost:8080/hello/tom](http://localhost:8080/hello/tom)

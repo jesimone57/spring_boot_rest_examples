@@ -136,7 +136,12 @@
             <scope>test</scope>
         </dependency>
 
-
+        <!-- https://mvnrepository.com/artifact/com.intuit.karate/karate-mock-servlet -->
+        <dependency>
+            <groupId>com.intuit.karate</groupId>
+            <artifactId>karate-mock-servlet</artifactId>
+            <version>0.9.2</version>
+        </dependency>
     </dependencies>
 
 

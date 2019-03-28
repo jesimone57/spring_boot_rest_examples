@@ -23,6 +23,7 @@ Feature:  palindrome numbers
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 2 errors'
+    And match response.errors == '#[2]'
     And match response.errors[*].error_message contains 'end must be a positive number or 0'
     And match response.errors[*].error_message contains 'start must be a positive number or 0'
 
@@ -36,7 +37,10 @@ Feature:  palindrome numbers
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
+    And match response.errors == '#[1]'
     And match response.errors[0].error_message contains 'start must be a positive number or 0'
+    And match response.errors[0].error_field == 'start'
+    And match response.errors[0].error_value == null
 
   Scenario: palidromes error response with start parameter of wrong type
     Given path '/palindromes'
@@ -49,8 +53,10 @@ Feature:  palindrome numbers
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
+    And match response.errors == '#[1]'
     And match response.errors[0].error_message contains 'Failed to convert property value of type'
     And match response.errors[0].error_field == 'start'
+    And match response.errors[0].error_value == 'a'
 
   Scenario: palidromes error response with missing end parameter
     Given path '/palindromes'
@@ -62,7 +68,10 @@ Feature:  palindrome numbers
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
+    And match response.errors == '#[1]'
     And match response.errors[0].error_message contains 'end must be a positive number or 0'
+    And match response.errors[0].error_field == 'end'
+    And match response.errors[0].error_value == null
 
   Scenario: palidromes error response with end parameter of wrong type
     Given path '/palindromes'
@@ -75,8 +84,10 @@ Feature:  palindrome numbers
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
+    And match response.errors == '#[1]'
     And match response.errors[0].error_message contains 'Failed to convert property value of type'
     And match response.errors[0].error_field == 'end'
+    And match response.errors[0].error_value == 'z'
 
   Scenario: palidromes error response with range reversed
     Given path '/palindromes'

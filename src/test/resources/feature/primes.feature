@@ -4,7 +4,7 @@ Feature:  prime numbers
     * url 'http://localhost:8080'
     * configure lowerCaseResponseHeaders = true
 
-  Scenario: is 11 a prime number?
+  Scenario: Is 11 a prime number?
     Given path '/isprime/11'
     When method get
     Then status 200
@@ -12,7 +12,7 @@ Feature:  prime numbers
     And match header content-type contains 'charset=utf-8'
     And match response == 'true'
 
-  Scenario: is 12 a prime number?
+  Scenario: Is 12 a prime number?
     Given path '/isprime/12'
     When method get
     Then status 200
@@ -20,7 +20,7 @@ Feature:  prime numbers
     And match header content-type contains 'charset=utf-8'
     And match response == 'false'
 
-  Scenario Outline: validate <number> for being prime=<result>
+  Scenario Outline: Validate that <number> is prime=<result>
     Given path '/isprime/<number>'
     When method get
     Then status 200

@@ -13,4 +13,4 @@ Feature:  No URLfound proper error response
     And match response.status_code == 404
     And match response.method == 'GET'
     And match response.error_message == 'The URL you have reached is not in service at this time'
-    And match response.errors == '#[]'
+    And match response.errors == '#[0]'

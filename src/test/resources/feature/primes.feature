@@ -44,14 +44,14 @@ Feature:  prime numbers
     And match header content-type contains 'charset=utf-8'
     And match response == <result>
     Examples:
-      | number | result     |
-      | 2      | [2]        |
-      | 3      | [3]        |
-      | 6      | [2,3]      |
-      | 10     | [2,5]      |
-      | 100    | [2,2,5,5]  |
-      | 10001  | [73,137]   |
-      | 100001 | [11,9091]  |
+      | number | result    |
+      | 2      | [2]       |
+      | 3      | [3]       |
+      | 6      | [2,3]     |
+      | 10     | [2,5]     |
+      | 100    | [2,2,5,5] |
+      | 10001  | [73,137]  |
+      | 100001 | [11,9091] |
 
   Scenario Outline: Find all the the prime factors in the range from <start> to <end> are <result>
     Given path '/primefactorsinrange/<start>/<end>'
@@ -61,9 +61,9 @@ Feature:  prime numbers
     And match header content-type contains 'charset=utf-8'
     And match response == {numbers:<result>, start:<start>, end:<end>, count:<count>, type:PrimeFactors}
     Examples:
-      | start | end     | result                                        | count
-      | 8     | 10      | {8: [2,2,2], 9:[3,3], 10:[2,5]}               | 3
-      | 13    | 16      | {13: [13], 14:[2,7], 15:[3,5], 16:[2,2,2,2]}  | 4
+      | start | end | result                                       | count
+      | 8     | 10  | {8: [2,2,2], 9:[3,3], 10:[2,5]}              | 3
+      | 13    | 16  | {13: [13], 14:[2,7], 15:[3,5], 16:[2,2,2,2]} | 4
 
 
   Scenario Outline: Find all primes in the range from <start> to <end> are <result>

@@ -12,7 +12,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @EnableAutoConfiguration
-@PropertySource("classpath:application-test.properties")
+@PropertySource("classpath:application.properties")
 public class MockConfig {
 
     @Bean

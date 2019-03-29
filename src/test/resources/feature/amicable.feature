@@ -14,7 +14,7 @@ Feature:  Amicable numbers
     And match header content-type contains 'charset=utf-8'
     And match response == {numbers:[[220,284]], start:1, end:1000, count:1, type:Amicable}
 
-  Scenario: amicable error response with no rewquired parameters
+  Scenario: amicable error response with no required parameters
     Given path '/amicables'
     When method get
     Then status 400

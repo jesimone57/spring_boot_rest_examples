@@ -14,7 +14,7 @@ Feature:  palindrome numbers
     And match header content-type contains 'charset=utf-8'
     And match response == {numbers:[1,2,3,4,5,6,7,8,9], start:1, end:10, count:9, type:Palindrome}
 
-  Scenario: palidromes error response with no rewquired parameters
+  Scenario: palidromes error response with no required parameters
     Given path '/palindromes'
     When method get
     Then status 400

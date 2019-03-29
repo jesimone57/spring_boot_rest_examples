@@ -14,7 +14,7 @@ Feature:  Perfect numbers
     And match header content-type contains 'charset=utf-8'
     And match response == {numbers:[6,28], start:1, end:100, count:2, type:Perfect}
 
-  Scenario: perfects error response with no rewquired parameters
+  Scenario: perfects error response with no required parameters
     Given path '/perfects'
     When method get
     Then status 400

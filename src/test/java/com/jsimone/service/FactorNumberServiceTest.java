@@ -9,8 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
@@ -51,6 +50,17 @@ public class FactorNumberServiceTest {
 	public void findAmicableNumberOf284() throws Exception {
 		Integer amicableNumber = factorNumberService.computeAmicableNumber(284);
 		assertEquals(Integer.valueOf(220), amicableNumber);
+	}
+
+	@Test
+	public void findAmicableNumberPairs() throws Exception {
+		List<Set<Integer>> pairs = factorNumberService.computeAmicableNumberPairs(1,1000);
+		Set<Integer> set = new TreeSet<>();
+		set.add(220);
+		set.add(284);
+		List<Set<Integer>> expected = new ArrayList<>();
+		expected.add(set);
+		assertEquals(expected, pairs);
 	}
 
 	@Test

@@ -42,12 +42,4 @@ public class NumbersMapResponse {
 		this.type = type;
 	}
 
-	public void setStart(Integer start) {
-		this.start = start;
-	}
-
-	public void setEnd(Integer end) {
-		this.end = end;
-	}
-
 }

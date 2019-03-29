@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by jsimone on 6/1/17.
@@ -38,6 +40,22 @@ public class FactorNumberService {
         List<Integer> factors = computeFactors(number);
         int sumOfFactors = factors.stream().mapToInt(e -> e).sum();
         return sumOfFactors == number;
+    }
+
+    public List<Set<Integer>> computeAmicableNumberPairs(int start, int end) {
+        List<Set<Integer>> listOfSets = new ArrayList<>();
+        for (int i = start; i <= end; i++) {
+            Integer result = computeAmicableNumber(i);
+            if (result != null) {
+                Set<Integer> pair = new TreeSet<>();
+                pair.add(i);
+                pair.add(result);
+                if (!listOfSets.contains(pair)) {
+                    listOfSets.add(pair);
+                }
+            }
+        }
+        return listOfSets;
     }
 
 }

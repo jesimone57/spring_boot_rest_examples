@@ -93,17 +93,16 @@ Firefox browser also does an excellent job of formatting the JSON results.
 ## Armstrong/Narcissistic Numbers, Palindromic, Amicable and Perfect Number Examples
 
 ### Find all the armstrong numbers in the given range
-[http://localhost:8080/armstrong/1/10000](http://localhost:8080/armstrong/1/10000)
+[http://localhost:8080/armstrongs?start=1&end=10000](http://localhost:8080/armstrongs?start=1&end=10000)
 
-[http://localhost:8080/armstrong/1/100000](http://localhost:8080/armstrong/1/100000)
+[http://localhost:8080/armstrongs?start=1&end=100000](http://localhost:8080/armstrongs?start=1&end=100000)
 
 ### Find all the palindromic numbers in the given range
-[http://localhost:8080/palindromes/0/100](http://localhost:8080/palindromes/0/100)
+[http://localhost:8080/palindromes?start=0&end=100](http://localhost:8080/palindromes?start=0&end=100)
 
-[http://localhost:8080/palindromes/100/1000](http://localhost:8080/palindromes/100/1000)
+[http://localhost:8080/palindromes?start=100&end=1000](http://localhost:8080/palindromes?start=100&end=1000)
 
 ### same as above with error checking on the range. Note: Error response if url parameters are missing or wrong.
-[http://localhost:8080/palindromes?start=100&end=1000](http://localhost:8080/palindromes?start=100&end=1000)
 
 [http://localhost:8080/palindromes](http://localhost:8080/palindromes)
 
@@ -114,12 +113,12 @@ Firefox browser also does an excellent job of formatting the JSON results.
 [http://localhost:8080/palindromes?start=10&end=1](http://localhost:8080/palindromes?start=10&end=1)
 
 ### Find all the amicable numbers in the given range
-[http://localhost:8080/amicable/200/300](http://localhost:8080/amicable/200/300)
+[http://localhost:8080/amicables?start=200&end=300](http://localhost:8080/amicables?start=200&end=300)
 
-[http://localhost:8080/amicable/1/100000](http://localhost:8080/amicable/1/100000)
+[http://localhost:8080/amicables?start=1&end=100000](http://localhost:8080/amicables?start=1&end=100000)
 
 ### Find all the perfect numbers in the given range
-[http://localhost:8080/perfect/1/100](http://localhost:8080/perfect/1/100)
+[http://localhost:8080/perfects?start=1&end=100](http://localhost:8080/perfects?start=1&end=100)
 
-[http://localhost:8080/perfect/5000/10000](http://localhost:8080/perfect/5000/10000)
+[http://localhost:8080/perfects?start=5000&end=10000](http://localhost:8080/perfects?start=5000&end=10000)
 

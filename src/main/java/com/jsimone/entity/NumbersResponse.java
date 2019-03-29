@@ -34,19 +34,16 @@ public class NumbersResponse {
 		this.start = start;
 		this.end = end;
 	}
+	public NumbersResponse(Range range) {
+		range.validate();
+		this.start = range.getStart();
+		this.end = range.getEnd();
+	}
 
 	public void setNumbers(List<Integer> numbers, NumbersType type) {
 		this.numbers = numbers;
 		this.count = numbers.size();
 		this.type = type;
-	}
-
-	public void setStart(Integer start) {
-		this.start = start;
-	}
-
-	public void setEnd(Integer end) {
-		this.end = end;
 	}
 
 	public List<Integer> getNumbers() {

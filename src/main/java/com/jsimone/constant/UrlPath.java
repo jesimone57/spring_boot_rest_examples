@@ -20,7 +20,7 @@ public class UrlPath {
 
     public static final String URL_IS_PRIME = "/isprime/{number}";
     public static final String URL_PRIMES_IN_RANGE = "/primesinrange/{start}/{end}";
-    public static final String URL_PRIME_FACTORS_IN_RANGE = "/primefactorsinrange/{start}/{end}";
+    public static final String URL_PRIME_FACTORS = "/primefactors";
     public static final String URL_PRIME_FACTORIZATION = "/primefactors/{number}";
 
     public static final String URL_ARMSTRONG_NUMBERS = "/armstrongs";

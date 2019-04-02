@@ -4,6 +4,7 @@ import com.jsimone.constant.UrlPath;
 import com.jsimone.entity.NumbersMapResponse;
 import com.jsimone.entity.NumbersResponse;
 import com.jsimone.entity.NumbersType;
+import com.jsimone.entity.Range;
 import com.jsimone.service.CommonNumberService;
 import com.jsimone.service.PrimeNumberService;
 import io.swagger.annotations.Api;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -24,7 +26,7 @@ import java.util.TreeMap;
         description = "A prime number is a whole number greater than 1 whose only factors are 1 and itself. A factor is a whole numbers that can be divided evenly into another number. ",
         tags = "Prime Numbers API")
 @RequestMapping("/")
-public class PrimeNumberController {
+public class PrimeNumberController extends RestControllerBase {
 
     @Autowired
     private PrimeNumberService primeNumberService;
@@ -48,14 +50,14 @@ public class PrimeNumberController {
     }
 
     @ApiOperation(value = "Find all prime factors for each number in the given range")
-    @GetMapping(value = UrlPath.URL_PRIME_FACTORS_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public NumbersMapResponse getPrimeFactorsInRange(@PathVariable int start, @PathVariable int end) {
+    @GetMapping(value = UrlPath.URL_PRIME_FACTORS, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public NumbersMapResponse getPrimeFactorsInRange(@Valid Range range) {
+        NumbersMapResponse response = new NumbersMapResponse(range);
         Map<Integer, List<Integer>> map = new TreeMap<>();
-        for (int i = start; i <= end; i++) {
+        for (int i = range.getStart(); i <= range.getEnd(); i++) {
             List<Integer> factors = primeNumberService.computePrimeFactorization(i);
             map.put(i, factors);
         }
-        NumbersMapResponse response = new NumbersMapResponse(start, end);
         response.setNumbers(map, NumbersType.PrimeFactors);
         return response;
     }

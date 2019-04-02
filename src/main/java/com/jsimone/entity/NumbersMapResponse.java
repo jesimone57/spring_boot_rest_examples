@@ -35,6 +35,11 @@ public class NumbersMapResponse {
 		this.start = start;
 		this.end = end;
 	}
+	public NumbersMapResponse(Range range) {
+		range.validate();
+		this.start = range.getStart();
+		this.end = range.getEnd();
+	}
 
 	public void setNumbers(Map<Integer, List<Integer>> numbers, NumbersType type) {
 		this.numbers = numbers;

@@ -1,7 +1,7 @@
 Feature:  say hello
 
   Background:
-    * url 'http://localhost:8080'
+    * url baseUrl
     * configure lowerCaseResponseHeaders = true
 
   Scenario: Hello using a path variable

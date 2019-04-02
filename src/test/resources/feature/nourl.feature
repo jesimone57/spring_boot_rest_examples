@@ -1,7 +1,7 @@
 Feature:  No URLfound proper error response
 
   Background:
-    * url 'http://localhost:8080'
+    * url baseUrl
     * configure lowerCaseResponseHeaders = true
 
   Scenario: Invalid URL response

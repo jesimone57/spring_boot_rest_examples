@@ -1,7 +1,7 @@
 Feature:  palindrome numbers
 
   Background:
-    * url 'http://localhost:8080'
+    * url baseUrl
     * configure lowerCaseResponseHeaders = true
 
   Scenario: palidromes sucess response

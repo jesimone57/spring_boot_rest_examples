@@ -1,7 +1,7 @@
 Feature:  Armstrong numbers
 
   Background:
-    * url 'http://localhost:8080'
+    * url baseUrl
     * configure lowerCaseResponseHeaders = true
 
   Scenario: armstrong sucess response

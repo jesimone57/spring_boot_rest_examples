@@ -1,7 +1,7 @@
 Feature:  prime numbers
 
   Background:
-    * url 'http://localhost:8080'
+    * url baseUrl
     * configure lowerCaseResponseHeaders = true
 
   Scenario: Is 11 a prime number?

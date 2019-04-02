@@ -1,7 +1,7 @@
 Feature:  Amicable numbers
 
   Background:
-    * url 'http://localhost:8080'
+    * url baseUrl
     * configure lowerCaseResponseHeaders = true
 
   Scenario: amicable sucess response

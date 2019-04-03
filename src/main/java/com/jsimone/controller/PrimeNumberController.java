@@ -42,10 +42,10 @@ public class PrimeNumberController {
     }
 
     @ApiOperation(value = "Find all prime numbers in the given range")
-    @GetMapping(value = UrlPath.URL_PRIMES_IN_RANGE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public NumbersResponse getPrimesNumbersInRange(@PathVariable Integer start, @PathVariable Integer end) {
-        NumbersResponse primes = new NumbersResponse(start, end);
-        primes.setNumbers(primeNumberService.computePrimesInRange(start, end), NumbersType.Prime);
+    @GetMapping(value = UrlPath.URL_PRIMES, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public NumbersResponse getPrimesNumbersInRange(@Valid Range range) {
+        NumbersResponse primes = new NumbersResponse(range);
+        primes.setNumbers(primeNumberService.computePrimesInRange(range.getStart(), range.getEnd()), NumbersType.Prime);
         return primes;
     }
 

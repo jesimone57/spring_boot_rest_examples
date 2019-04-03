@@ -7,19 +7,19 @@ import io.swagger.annotations.ApiModelProperty;
 import org.springframework.http.HttpStatus;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Positive;
 
 @ApiModel(description = "Class representing a range of numbers.")
 public class Range {
 
     @ApiModelProperty(notes = "Start of range", example = "1", required = true, position = 1)
     @NotNull(message = "start must be a positive number or 0")
-    @PositiveOrZero
+    @Positive
     private Integer start;
 
     @ApiModelProperty(notes = "End of range", example = "100", required = true, position = 2)
     @NotNull(message = "end must be a positive number or 0")
-    @PositiveOrZero
+    @Positive
     private Integer end;
 
     public Integer getStart() {
@@ -36,6 +36,13 @@ public class Range {
 
     public void setEnd(Integer end) {
         this.end = end;
+    }
+
+    public Range() {}
+    public Range(int start, int end) {
+        this.start = start;
+        this.end = end;
+        validate();
     }
 
     public void validate() {

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-import static com.jsimone.constant.UrlPath.URL_PALINDROMIC_NUMBERS;
+import static com.jsimone.constant.UrlPath.URL_PALINDROMES;
 import static com.jsimone.constant.UrlPath.URL_PALINDROMIC_NUMBERS_IN_RANGE;
 
 @RestController
@@ -37,7 +37,7 @@ public class PalindromicNumberController {
     }
 
     @ApiOperation(value = "Find all palindromic numbers in the given range")
-    @GetMapping(value = URL_PALINDROMIC_NUMBERS, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = URL_PALINDROMES, produces = {MediaType.APPLICATION_JSON_VALUE})
     public NumbersResponse getPalindromicNumbersInRange2(@Valid Range range) {
         NumbersResponse response = new NumbersResponse(range);
         response.setNumbers(palindromicNumberService.computePalindromicNumbersInRange(range.getStart(), range.getEnd()), NumbersType.Palindrome);

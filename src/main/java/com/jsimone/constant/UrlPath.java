@@ -19,7 +19,7 @@ public class UrlPath {
     public static final String URL_LCM = "/lcm/{number1}/{number2}";
 
     public static final String URL_IS_PRIME = "/isprime/{number}";
-    public static final String URL_PRIMES_IN_RANGE = "/primesinrange/{start}/{end}";
+    public static final String URL_PRIMES = "/primes";
     public static final String URL_PRIME_FACTORS = "/primefactors";
     public static final String URL_PRIME_FACTORIZATION = "/primefactors/{number}";
 
@@ -28,5 +28,5 @@ public class UrlPath {
     public static final String URL_PERFECT_NUMBERS = "/perfects";
 
     public static final String URL_PALINDROMIC_NUMBERS_IN_RANGE = "/palindromes/{start}/{end}";
-    public static final String URL_PALINDROMIC_NUMBERS = "/palindromes";
+    public static final String URL_PALINDROMES = "/palindromes";
 }

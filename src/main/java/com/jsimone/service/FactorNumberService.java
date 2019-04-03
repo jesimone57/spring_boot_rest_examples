@@ -1,11 +1,16 @@
 package com.jsimone.service;
 
+import com.jsimone.entity.NumbersResponse;
+import com.jsimone.entity.NumbersType;
+import com.jsimone.entity.Range;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Created by jsimone on 6/1/17.
@@ -40,6 +45,16 @@ public class FactorNumberService {
         List<Integer> factors = computeFactors(number);
         int sumOfFactors = factors.stream().mapToInt(e -> e).sum();
         return sumOfFactors == number;
+    }
+
+    public NumbersResponse perfectNumbersInRange(Range range) {
+        NumbersResponse response = new NumbersResponse(range);
+        List<Integer> list = IntStream.range(range.getStart(), range.getEnd() + 1)
+                .filter(n -> isPerfectNumber(n))
+                .boxed()
+                .collect(Collectors.toList());
+        response.setNumbers(list, NumbersType.Perfect);
+        return response;
     }
 
     public List<Set<Integer>> computeAmicableNumberPairs(int start, int end) {

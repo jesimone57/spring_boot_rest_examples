@@ -14,6 +14,10 @@ public class CommonNumberService {
     @Autowired
     private PrimeNumberService primeNumberService;
 
+    public void setPrimeNumberService(PrimeNumberService primeNumberService) {
+        this.primeNumberService = primeNumberService;
+    }
+
     public int computeLeastCommonMultiple(int number1, int number2) {
         List<Integer> factors1 = primeNumberService.computePrimeFactorization(number1);
         List<Integer> factors2 = primeNumberService.computePrimeFactorization(number2);

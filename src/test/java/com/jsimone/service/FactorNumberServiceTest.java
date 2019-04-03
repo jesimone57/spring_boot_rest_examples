@@ -1,7 +1,7 @@
 package com.jsimone.service;
 
 import com.jsimone.entity.Range;
-import com.jsimone.exception.ErrorResponseException;
+import com.jsimone.exception.RangeValidationException;
 import org.junit.Test;
 
 import java.util.*;
@@ -72,7 +72,7 @@ public class FactorNumberServiceTest {
         assertEquals(expected, factorNumberService.perfectNumbersInRange(new Range(1, 30)).getNumbers());
     }
 
-    @Test(expected = ErrorResponseException.class)
+    @Test(expected = RangeValidationException.class)
     public void testPerfectNumberInRangeException() {
         factorNumberService.perfectNumbersInRange(new Range(6, 5));
     }

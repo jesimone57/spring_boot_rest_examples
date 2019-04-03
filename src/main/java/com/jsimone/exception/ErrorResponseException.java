@@ -6,6 +6,7 @@ public class ErrorResponseException extends RuntimeException {
     private ErrorResponse errorResponse = null;
 
     public ErrorResponseException() {
+        super();
     }
 
     public ErrorResponseException(ErrorResponse errorResponse) {

@@ -136,5 +136,6 @@ Feature:  prime numbers
     And match header content-type contains 'charset=utf-8'
     And match response.status_code == 400
     And match response.method == 'GET'
+    And match response.uri_path == '/primes'
     And match response.error_message == 'Invalid range.  start value=6 must be before end value=5.'
     And match response.errors == '#[0]'

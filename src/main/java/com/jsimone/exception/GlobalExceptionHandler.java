@@ -54,6 +54,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         ResponseEntity<Object> responseEntity = null;
         if (exception instanceof ErrorResponseException) {
             responseEntity = buildBadRequestResponse(exception, webRequest);
+        } else if (exception instanceof RangeValidationException) {
+            responseEntity = buildBadRequestResponse(exception, webRequest);
         } else {
             responseEntity = buildInteralRuntimeException(exception, webRequest);
         }

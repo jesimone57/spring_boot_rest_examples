@@ -1,10 +1,8 @@
 package com.jsimone.entity;
 
-import com.jsimone.error.ErrorResponse;
-import com.jsimone.exception.ErrorResponseException;
+import com.jsimone.exception.RangeValidationException;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.http.HttpStatus;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
@@ -47,9 +45,7 @@ public class Range {
 
     public void validate() {
         if (this.getStart() != null && this.getEnd() != null && this.getEnd() < this.getStart()) {
-            ErrorResponse errorResponse = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "/palindromes", "GET",
-                    String.format("Invalid range.  start value=%d must be before end value=%d.", this.getStart(), this.getEnd()));
-            throw new ErrorResponseException(errorResponse);
+            throw new RangeValidationException(String.format("Invalid range.  start value=%d must be before end value=%d.", this.getStart(), this.getEnd()));
         }
     }
 }

@@ -4,15 +4,21 @@ Feature:  Armstrong numbers
     * url baseUrl
     * configure lowerCaseResponseHeaders = true
 
-  Scenario: armstrong sucess response
+  Scenario Outline: Find Armstrong numbers in the range from <start> to <end> are <result>
     Given path '/armstrongs'
-    And param start = 1
-    And param end = 10
+    And param start = <start>
+    And param end = <end>
     When method get
     Then status 200
     And match header content-type contains 'application/json'
     And match header content-type contains 'charset=utf-8'
-    And match response == {numbers:[1,2,3,4,5,6,7,8,9], start:1, end:10, count:9, type:Armstrong}
+    And match response == {numbers:<result>, start:<start>, end:<end>, count: <count>, type:Armstrong}
+    Examples:
+      | start | end    | result                | count
+      | 1     | 10     | [1,2,3,4,5,6,7,8,9]   | 9
+      | 100   | 1000   | [153, 370, 371, 407]  | 4
+      | 90000 | 100000 | [92727, 93084]        | 2
+
 
   Scenario: armstrong error response with no required parameters
     Given path '/armstrongs'

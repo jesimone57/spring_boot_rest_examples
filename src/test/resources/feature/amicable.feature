@@ -4,7 +4,7 @@ Feature:  Amicable numbers
     * url baseUrl
     * configure lowerCaseResponseHeaders = true
 
-  Scenario: amicable sucess response
+  Scenario: amicable success response
     Given path '/amicables'
     And param start = 1
     And param end = 1000
@@ -102,3 +102,20 @@ Feature:  Amicable numbers
     And match response.uri_path == '/amicables'
     And match response.error_message == 'Invalid range.  start value=6 must be before end value=5.'
     And match response.errors == '#[0]'
+
+  Scenario: amicables error response when start is 0
+    Given path '/amicables'
+    And param start = 0
+    And param end = 5
+    When method get
+    Then status 400
+    And match header content-type contains 'application/json'
+    And match header content-type contains 'charset=utf-8'
+    And match response.status_code == 400
+    And match response.method == 'GET'
+    And match response.uri_path == '/amicables'
+    And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
+    And match response.errors == '#[1]'
+    And match response.errors[0].error_message == 'must be greater than 0'
+    And match response.errors[0].error_field == 'start'
+    And match response.errors[0].error_value == '0'

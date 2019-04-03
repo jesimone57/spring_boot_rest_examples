@@ -23,7 +23,7 @@ import static com.jsimone.constant.UrlPath.URL_PALINDROMIC_NUMBERS_IN_RANGE;
         description = "A palindromic number is one which equals itself when reversed such as 12321 or 626 or 11.",
         tags = "Palindromic Numbers API")
 @RequestMapping("/")
-public class PalindromicNumberController extends RestControllerBase {
+public class PalindromicNumberController {
 
     @Autowired
     private PalindromicNumberService palindromicNumberService;

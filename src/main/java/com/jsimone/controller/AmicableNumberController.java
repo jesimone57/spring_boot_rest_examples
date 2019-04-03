@@ -20,7 +20,7 @@ import javax.validation.Valid;
         description = "An amicable number is one whose factors sum to second number, for which that second number's factor sum to the first number.",
         tags = "Amicable Numbers API")
 @RequestMapping("/")
-public class AmicableNumberController extends RestControllerBase {
+public class AmicableNumberController {
 
     @Autowired
     private FactorNumberService factorNumberService;

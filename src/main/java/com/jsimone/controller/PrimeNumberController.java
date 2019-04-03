@@ -26,7 +26,7 @@ import java.util.TreeMap;
         description = "A prime number is a whole number greater than 1 whose only factors are 1 and itself. A factor is a whole numbers that can be divided evenly into another number. ",
         tags = "Prime Numbers API")
 @RequestMapping("/")
-public class PrimeNumberController extends RestControllerBase {
+public class PrimeNumberController {
 
     @Autowired
     private PrimeNumberService primeNumberService;

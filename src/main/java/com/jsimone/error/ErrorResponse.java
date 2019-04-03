@@ -8,6 +8,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.context.request.NativeWebRequest;
+import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -49,6 +51,18 @@ public class ErrorResponse {
         this.path = request.getRequestURI();
         this.message = exception.getMessage();
         this.method = request.getMethod();
+        if (exception instanceof BindException || exception instanceof MethodArgumentNotValidException) {
+            addBindingResultErrors(((BindException) exception).getBindingResult());
+        }
+    }
+
+    public ErrorResponse(int code, WebRequest webRequest, Exception exception) {
+        NativeWebRequest nativeRequest=(NativeWebRequest)webRequest;
+        HttpServletRequest servletRequest=nativeRequest.getNativeRequest(HttpServletRequest.class);
+        this.code = code;
+        this.path = servletRequest.getRequestURI();
+        this.message = exception.getMessage();
+        this.method = servletRequest.getMethod();
         if (exception instanceof BindException || exception instanceof MethodArgumentNotValidException) {
             addBindingResultErrors(((BindException) exception).getBindingResult());
         }

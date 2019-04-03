@@ -1,4 +1,5 @@
 import com.jsimone.controller.*;
+import com.jsimone.exception.GlobalExceptionHandler;
 import com.jsimone.service.*;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,13 @@ import org.springframework.context.annotation.PropertySource;
 @EnableAutoConfiguration
 @PropertySource("classpath:application.properties")
 public class MockConfig {
+
+    // Global Exception Handler ...
+    @Bean
+    public GlobalExceptionHandler globalExceptionHandler() {
+        return new GlobalExceptionHandler();
+    }
+
 
     // Services ...
     @Bean

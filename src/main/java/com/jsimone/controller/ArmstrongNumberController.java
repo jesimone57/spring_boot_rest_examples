@@ -24,7 +24,7 @@ import javax.validation.Valid;
                 "For example 1634 is an armstrong number because  1^4=1 + 6^4=1296 + 3^4=81 + 4^4=256 = 1634",
         tags = "Armstrong Numbers API")
 @RequestMapping("/")
-public class ArmstrongNumberController extends RestControllerBase {
+public class ArmstrongNumberController {
 
     @Autowired
     private ArmstrongNumberService armstrongNumberService;

@@ -22,7 +22,7 @@ import java.util.List;
         description = "A perfect number is one whose factors sum to the number itself. For example 6 is a perfect number because its factors 1,2 and 3 = 1+2+3 = 6, which is the number itself.",
         tags = "Perfect Numbers API")
 @RequestMapping("/")
-public class PerfectNumberController extends RestControllerBase {
+public class PerfectNumberController {
 
     @Autowired
     private FactorNumberService factorNumberService;

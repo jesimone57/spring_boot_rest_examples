@@ -12,16 +12,17 @@ Feature:  Amicable numbers
     Then status 200
     And match header content-type contains 'application/json'
     And match header content-type contains 'charset=utf-8'
-    And match response == {numbers:<result>, start:<start>, end:<end>, count: <count>, type:Amicable}
+    And def result = <result>
+    And match response == {numbers: <result>, start: <start>, end: <end>, count: '#(result.length)', type: 'Amicable'}
     Examples:
-      | start  | end    | result                            | count
-      |      1 |   1000 | [[ 220, 284]]                     | 1
-      |   1000 |   2000 | [[1184,1210]]                     | 1
-      |   2000 |   3000 | [[2620,2924]]                     | 1
-      |   5000 |   6000 | [[5020,5564]]                     | 1
-      |   6000 |   7000 | [[6232,6368]]                     | 1
-      |  12000 |  20000 | [[12285,14595], [17296,18416]]    | 2
-#     | 185000 | 200000 | [[185368,203432],[196724,202444]] | 2
+      | start  | end    | result
+      |      1 |   1000 | [[ 220, 284]]
+      |   1000 |   2000 | [[1184,1210]]
+      |   2000 |   3000 | [[2620,2924]]
+      |   5000 |   6000 | [[5020,5564]]
+      |   6000 |   7000 | [[6232,6368]]
+      |  12000 |  20000 | [[12285,14595], [17296,18416]]
+#     | 185000 | 200000 | [[185368,203432],[196724,202444]]
 
 
   Scenario: amicable error response with no required parameters

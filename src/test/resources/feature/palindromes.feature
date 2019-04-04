@@ -4,15 +4,21 @@ Feature:  palindrome numbers
     * url baseUrl
     * configure lowerCaseResponseHeaders = true
 
-  Scenario: palindromes success response
+  Scenario Outline: Find Palindrome numbers in the range from <start> to <end> are <result>
     Given path '/palindromes'
-    And param start = 1
-    And param end = 10
+    And param start = <start>
+    And param end = <end>
     When method get
     Then status 200
     And match header content-type contains 'application/json'
     And match header content-type contains 'charset=utf-8'
-    And match response == {numbers:[1,2,3,4,5,6,7,8,9], start:1, end:10, count:9, type:Palindrome}
+    And def result = <result>
+    And match response == {numbers: <result>, start: <start>, end: <end>, count: '#(result.length)', type: 'Palindrome'}
+    Examples:
+      | start | end    | result
+      | 1     | 10     | [1,2,3,4,5,6,7,8,9]
+      | 10    | 100    | [11,22,33,44,55,66,77,88,99]
+      | 100   | 200    | [101,111,121,131,141,151,161,171,181,191]
 
   Scenario: palindromes error response with no required parameters
     Given path '/palindromes'

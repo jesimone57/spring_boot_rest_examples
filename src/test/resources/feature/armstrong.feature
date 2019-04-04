@@ -12,12 +12,13 @@ Feature:  Armstrong numbers
     Then status 200
     And match header content-type contains 'application/json'
     And match header content-type contains 'charset=utf-8'
-    And match response == {numbers:<result>, start:<start>, end:<end>, count: <count>, type:Armstrong}
+    And def result = <result>
+    And match response == {numbers: <result>, start: <start>, end: <end>, count: '#(result.length)', type: 'Armstrong'}
     Examples:
-      | start | end    | result                | count
-      | 1     | 10     | [1,2,3,4,5,6,7,8,9]   | 9
-      | 100   | 1000   | [153, 370, 371, 407]  | 4
-      | 90000 | 100000 | [92727, 93084]        | 2
+      | start | end    | result
+      | 1     | 10     | [1,2,3,4,5,6,7,8,9]
+      | 100   | 1000   | [153, 370, 371, 407]
+      | 90000 | 100000 | [92727, 93084]
 
 
   Scenario: armstrong error response with no required parameters

@@ -4,15 +4,25 @@ Feature:  Amicable numbers
     * url baseUrl
     * configure lowerCaseResponseHeaders = true
 
-  Scenario: amicable success response
+  Scenario Outline: Find Amicable numbers in the range from <start> to <end> are <result>
     Given path '/amicables'
-    And param start = 1
-    And param end = 1000
+    And param start = <start>
+    And param end = <end>
     When method get
     Then status 200
     And match header content-type contains 'application/json'
     And match header content-type contains 'charset=utf-8'
-    And match response == {numbers:[[220,284]], start:1, end:1000, count:1, type:Amicable}
+    And match response == {numbers:<result>, start:<start>, end:<end>, count: <count>, type:Amicable}
+    Examples:
+      | start  | end    | result                            | count
+      |      1 |   1000 | [[ 220, 284]]                     | 1
+      |   1000 |   2000 | [[1184,1210]]                     | 1
+      |   2000 |   3000 | [[2620,2924]]                     | 1
+      |   5000 |   6000 | [[5020,5564]]                     | 1
+      |   6000 |   7000 | [[6232,6368]]                     | 1
+      |  12000 |  20000 | [[12285,14595], [17296,18416]]    | 2
+#     | 185000 | 200000 | [[185368,203432],[196724,202444]] | 2
+
 
   Scenario: amicable error response with no required parameters
     Given path '/amicables'

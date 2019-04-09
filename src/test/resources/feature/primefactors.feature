@@ -3,6 +3,8 @@ Feature:  Prime Factors
   Background:
     * url baseUrl
     * configure lowerCaseResponseHeaders = true
+    * def keys = function(o){ return o.keySet() }
+    * def values = function(o){ return o.values() }
 
   Scenario Outline: Find all the the prime factors of <number> are <result>
     Given path '/primefactors/<number>'
@@ -29,11 +31,14 @@ Feature:  Prime Factors
     Then status 200
     And match header content-type contains 'application/json'
     And match header content-type contains 'charset=utf-8'
-    And match response == {numbers:<result>, start:<start>, end:<end>, count:<count>, type:PrimeFactors}
+    And def result = <result>
+    And json keys = keys(result)
+    And match response == {numbers:<result>, start:<start>, end:<end>, count: '#(keys.length)', type:PrimeFactors}
     Examples:
-      | start | end | result                                       | count
-      | 8     | 10  | {8: [2,2,2], 9:[3,3], 10:[2,5]}              | 3
-      | 13    | 16  | {13: [13], 14:[2,7], 15:[3,5], 16:[2,2,2,2]} | 4
+      | start | end | result
+      | 8     | 10  | {8: [2,2,2], 9:[3,3], 10:[2,5]}
+      | 13    | 16  | {13: [13], 14:[2,7], 15:[3,5], 16:[2,2,2,2]}
+
 
   Scenario: Prime factors error response with no required parameters
     Given path '/primefactors'

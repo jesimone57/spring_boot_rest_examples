@@ -5,6 +5,7 @@ Feature:  Prime Factors
     * configure lowerCaseResponseHeaders = true
     * def keys = function(o){ return o.keySet() }
     * def values = function(o){ return o.values() }
+    * def size = function(o){ return o.size() }
 
   Scenario Outline: Find all the the prime factors of <number> are <result>
     Given path '/primefactors/<number>'
@@ -32,8 +33,7 @@ Feature:  Prime Factors
     And match header content-type contains 'application/json'
     And match header content-type contains 'charset=utf-8'
     And def result = <result>
-    And json keys = keys(result)
-    And match response == {numbers:<result>, start:<start>, end:<end>, count: '#(keys.length)', type:PrimeFactors}
+    And match response == {numbers:<result>, start:<start>, end:<end>, count: '#(size(result))', type:PrimeFactors}
     Examples:
       | start | end | result
       | 8     | 10  | {8: [2,2,2], 9:[3,3], 10:[2,5]}

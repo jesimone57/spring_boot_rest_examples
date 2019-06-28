@@ -17,7 +17,7 @@ import javax.validation.Valid;
 
 @RestController
 @Api(value = "Amicable Numbers API",
-        description = "An amicable number is one whose factors sum to second number, for which that second number's factor sum to the first number.",
+        description = "An amicable number is one whose factors sum to second number, for which that second number's factors sum to the first number.",
         tags = "Amicable Numbers API")
 @RequestMapping("/")
 public class AmicableNumberController {

@@ -5,7 +5,7 @@ Feature:  say hello
     * configure lowerCaseResponseHeaders = true
 
   Scenario: Hello using a path variable
-    Given path '/hello/tom'
+    Given path 'hello/tom'
     When method get
     Then status 200
     And match header content-type contains 'text/plain'
@@ -13,7 +13,7 @@ Feature:  say hello
     And match response == 'hello tom'
 
   Scenario: Hello using a url named parameter
-    Given path '/hello2'
+    Given path 'hello2'
     And param name = 'fred'
     When method get
     Then status 200
@@ -22,7 +22,7 @@ Feature:  say hello
     And match response == 'hello fred'
 
   Scenario Outline: Hello to <name> should be hello <name>
-    Given path '/hello2'
+    Given path 'hello2'
     And param name = <name>
     When method get
     Then status 200

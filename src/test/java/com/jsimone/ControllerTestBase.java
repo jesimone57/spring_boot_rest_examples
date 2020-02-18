@@ -25,7 +25,7 @@ import static org.junit.Assert.assertTrue;
 public class ControllerTestBase {
 
     protected final static String CONTENT_TYPE = "Content-Type";
-    protected final static String EXPECTED_MEDIA_TYPE = "[" + MediaType.APPLICATION_JSON_UTF8.toString() + "]";
+    protected final static String EXPECTED_MEDIA_TYPE = "[" + MediaType.APPLICATION_JSON.toString() + "]";
 
     @LocalServerPort
     protected int port;
@@ -35,7 +35,7 @@ public class ControllerTestBase {
 
     protected HttpEntity<String> buildHttpEntity(String json) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add(CONTENT_TYPE, MediaType.APPLICATION_JSON_UTF8.toString());
+        headers.add(CONTENT_TYPE, MediaType.APPLICATION_JSON.toString());
         return new HttpEntity<String>(json, headers);
     }
 

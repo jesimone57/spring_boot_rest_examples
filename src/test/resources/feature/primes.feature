@@ -8,24 +8,21 @@ Feature:  prime numbers
     Given path '/isprime/11'
     When method get
     Then status 200
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response == 'true'
 
   Scenario: Is 12 a prime number?
     Given path '/isprime/12'
     When method get
     Then status 200
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response == 'false'
 
   Scenario Outline: Validate that <number> is prime=<result>
     Given path '/isprime/<number>'
     When method get
     Then status 200
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response == <result>
     Examples:
       | number | result |
@@ -42,8 +39,7 @@ Feature:  prime numbers
     And param end = <end>
     When method get
     Then status 200
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response == {numbers:<result>, start:<start>, end:<end>, count:4, type:Prime}
     Examples:
       | start | end | result
@@ -55,8 +51,7 @@ Feature:  prime numbers
     Given path '/primes'
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 2 errors'
@@ -69,8 +64,7 @@ Feature:  prime numbers
     And param end = 10
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -85,8 +79,7 @@ Feature:  prime numbers
     And param end = 10
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -100,8 +93,7 @@ Feature:  prime numbers
     And param start = 1
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -116,8 +108,7 @@ Feature:  prime numbers
     And param end = 'z'
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -132,8 +123,7 @@ Feature:  prime numbers
     And param end = 5
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.uri_path == '/primes'
@@ -146,8 +136,7 @@ Feature:  prime numbers
     And param end = 5
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.uri_path == '/primes'

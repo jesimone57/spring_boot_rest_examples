@@ -71,7 +71,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             errorResponse = new ErrorResponse(status.value(), webRequest, exception);
         }
         HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+        headers.setContentType(MediaType.APPLICATION_JSON);
         return new ResponseEntity<>(errorResponse, headers, status);
     }
 

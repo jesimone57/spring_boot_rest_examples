@@ -10,16 +10,14 @@ Feature:  Perfect numbers
     And param end = 100
     When method get
     Then status 200
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response == {numbers:[6,28], start:1, end:100, count:2, type:Perfect}
 
   Scenario: perfects error response with no required parameters
     Given path '/perfects'
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 2 errors'
@@ -32,8 +30,7 @@ Feature:  Perfect numbers
     And param end = 10
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -48,8 +45,7 @@ Feature:  Perfect numbers
     And param end = 10
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -63,8 +59,7 @@ Feature:  Perfect numbers
     And param start = 1
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -79,8 +74,7 @@ Feature:  Perfect numbers
     And param end = 'z'
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -95,8 +89,7 @@ Feature:  Perfect numbers
     And param end = 5
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.uri_path == '/perfects'
@@ -109,8 +102,7 @@ Feature:  Perfect numbers
     And param end = 5
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.uri_path == '/perfects'

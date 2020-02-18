@@ -11,8 +11,7 @@ Feature:  Prime Factors
     Given path '/primefactors/<number>'
     When method get
     Then status 200
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response == <result>
     Examples:
       | number | result    |
@@ -30,8 +29,7 @@ Feature:  Prime Factors
     And param end = <end>
     When method get
     Then status 200
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And def result = <result>
     And match response == {numbers:<result>, start:<start>, end:<end>, count: '#(size(result))', type:PrimeFactors}
     Examples:
@@ -44,8 +42,7 @@ Feature:  Prime Factors
     Given path '/primefactors'
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 2 errors'
@@ -58,8 +55,7 @@ Feature:  Prime Factors
     And param end = 10
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -74,8 +70,7 @@ Feature:  Prime Factors
     And param end = 10
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -89,8 +84,7 @@ Feature:  Prime Factors
     And param start = 1
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -105,8 +99,7 @@ Feature:  Prime Factors
     And param end = 'z'
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -121,8 +114,7 @@ Feature:  Prime Factors
     And param end = 5
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.uri_path == '/primefactors'
@@ -135,8 +127,7 @@ Feature:  Prime Factors
     And param end = 5
     When method get
     Then status 400
-    And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type == 'application/json'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.uri_path == '/primefactors'

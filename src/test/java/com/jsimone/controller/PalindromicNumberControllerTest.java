@@ -14,7 +14,7 @@ public class PalindromicNumberControllerTest extends ControllerTestBase {
         String url = "http://localhost:" + port + "/palindromes/1/10";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
-        verifySuccessResponse(response, HttpStatus.OK, MediaType.APPLICATION_JSON_UTF8);
+        verifySuccessResponse(response, HttpStatus.OK, MediaType.APPLICATION_JSON);
     }
 
     @Test
@@ -22,6 +22,6 @@ public class PalindromicNumberControllerTest extends ControllerTestBase {
         String url = "http://localhost:" + port + "/palindromes?start=1&end=10";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
-        verifySuccessResponse(response, HttpStatus.OK, MediaType.APPLICATION_JSON_UTF8);
+        verifySuccessResponse(response, HttpStatus.OK, MediaType.APPLICATION_JSON);
     }
 }

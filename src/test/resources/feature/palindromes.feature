@@ -11,7 +11,6 @@ Feature:  palindrome numbers
     When method get
     Then status 200
     And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
     And def result = <result>
     And match response == {numbers: <result>, start: <start>, end: <end>, count: '#(result.length)', type: 'Palindrome'}
     Examples:
@@ -25,7 +24,6 @@ Feature:  palindrome numbers
     When method get
     Then status 400
     And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 2 errors'
@@ -39,7 +37,6 @@ Feature:  palindrome numbers
     When method get
     Then status 400
     And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -55,7 +52,6 @@ Feature:  palindrome numbers
     When method get
     Then status 400
     And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -70,7 +66,6 @@ Feature:  palindrome numbers
     When method get
     Then status 400
     And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -86,7 +81,6 @@ Feature:  palindrome numbers
     When method get
     Then status 400
     And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.error_message contains 'BeanPropertyBindingResult: 1 errors'
@@ -102,7 +96,6 @@ Feature:  palindrome numbers
     When method get
     Then status 400
     And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.uri_path == '/palindromes'
@@ -116,7 +109,6 @@ Feature:  palindrome numbers
     When method get
     Then status 400
     And match header content-type contains 'application/json'
-    And match header content-type contains 'charset=utf-8'
     And match response.status_code == 400
     And match response.method == 'GET'
     And match response.uri_path == '/palindromes'

@@ -9,7 +9,7 @@ Feature:  say hello
     When method get
     Then status 200
     And match header content-type contains 'text/plain'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type contains 'charset=UTF-8'
     And match response == 'hello tom'
 
   Scenario: Hello using a url named parameter
@@ -18,7 +18,7 @@ Feature:  say hello
     When method get
     Then status 200
     And match header content-type contains 'text/plain'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type contains 'charset=UTF-8'
     And match response == 'hello fred'
 
   Scenario Outline: Hello to <name> should be hello <name>
@@ -27,7 +27,7 @@ Feature:  say hello
     When method get
     Then status 200
     And match header content-type contains 'text/plain'
-    And match header content-type contains 'charset=utf-8'
+    And match header content-type contains 'charset=UTF-8'
     And match response == <response>
     Examples:
       | name      | response

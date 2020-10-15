@@ -70,14 +70,14 @@ Firefox browser also does an excellent job of formatting the JSON results.
 [http://localhost:8080/isprime/100](http://localhost:8080/isprime/100)
 
 ### Find prime numbers in the given range
-[http://localhost:8080/primesinrange/3/101](http://localhost:8080/primesinrange/3/101)
+[http://localhost:8080/primes?start=3&end=101](http://localhost:8080/primes?start=3&end=101)
 
-[http://localhost:8080/primesinrange/10001/10099](http://localhost:8080/primesinrange/10001/10099)
+[http://localhost:8080/primes?start=10001&end=10099](http://localhost:8080/primes?start=10001&end=10099)
 
 ### Find the prime factorization of the numbers in the given range
-[http://localhost:8080/primefactorsinrange/3/101](http://localhost:8080/primefactorsinrange/3/101)
+[http://localhost:8080/primefactors?start=3&end=101](http://localhost:8080/primefactors?start=3&end=101)
 
-[http://localhost:8080/primefactorsinrange/10001/10099](http://localhost:8080/primefactorsinrange/10001/10099)
+[http://localhost:8080/primefactors?start=10001&end=10099](http://localhost:8080/primefactors?start=10001&end=10099)
 
 ### Find the prime factors of a given number
 [http://localhost:8080/primefactors/100](http://localhost:8080/primefactors/100)

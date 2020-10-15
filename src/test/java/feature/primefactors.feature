@@ -33,9 +33,9 @@ Feature:  Prime Factors
     And def result = <result>
     And match response == {numbers:<result>, start:<start>, end:<end>, count: '#(size(result))', type:PrimeFactors}
     Examples:
-      | start | end | result
-      | 8     | 10  | {8: [2,2,2], 9:[3,3], 10:[2,5]}
-      | 13    | 16  | {13: [13], 14:[2,7], 15:[3,5], 16:[2,2,2,2]}
+      | start | end | result                                       |
+      | 8     | 10  | {8: [2,2,2], 9:[3,3], 10:[2,5]}              |
+      | 13    | 16  | {13: [13], 14:[2,7], 15:[3,5], 16:[2,2,2,2]} |
 
 
   Scenario: Prime factors error response with no required parameters

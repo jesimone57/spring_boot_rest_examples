@@ -1,11 +1,19 @@
-import com.jsimone.controller.*;
+import com.jsimone.controller.AmicableNumberController;
+import com.jsimone.controller.ArmstrongNumberController;
+import com.jsimone.controller.HelloWorldController;
+import com.jsimone.controller.PalindromicNumberController;
+import com.jsimone.controller.PerfectNumberController;
+import com.jsimone.controller.PrimeNumberController;
 import com.jsimone.exception.GlobalExceptionHandler;
-import com.jsimone.service.*;
+import com.jsimone.service.ArmstrongNumberService;
+import com.jsimone.service.CommonNumberService;
+import com.jsimone.service.FactorNumberService;
+import com.jsimone.service.PalindromicNumberService;
+import com.jsimone.service.PrimeNumberService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-
 
 @Configuration
 @EnableAutoConfiguration

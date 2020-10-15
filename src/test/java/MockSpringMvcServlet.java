@@ -22,9 +22,10 @@
  * THE SOFTWARE.
  */
 
-import com.intuit.karate.http.HttpRequestBuilder;
 import com.intuit.karate.mock.servlet.MockHttpClient;
-import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties;
+import com.intuit.karate.http.HttpRequestBuilder;
+import org.junit.platform.commons.logging.Logger;
+import org.junit.platform.commons.logging.LoggerFactory;
 import org.springframework.mock.web.MockServletConfig;
 import org.springframework.mock.web.MockServletContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -38,6 +39,8 @@ import javax.servlet.ServletContext;
  * @author pthomas3
  */
 public class MockSpringMvcServlet extends MockHttpClient {
+
+    private static final Logger logger = LoggerFactory.getLogger(MockSpringMvcServlet.class);
 
     private final Servlet servlet;
     private final ServletContext servletContext;
@@ -72,31 +75,15 @@ public class MockSpringMvcServlet extends MockHttpClient {
         ServletConfig servletConfig = new MockServletConfig();
         try {
             servlet.init(servletConfig);
-            customize(servlet);
         } catch (Exception e) {
+            //logger.error("init failed: {}", e.getMessage());
             throw new RuntimeException(e);
         }
         return servlet;
     }
 
-    /**
-     * Checks if servlet is Dispatcher servlet implementation and then fetches
-     * the WebMvcProperties from spring container and configure the dispatcher
-     * servlet.
-     *
-     * @param servlet input servlet implementation
-     */
-    private static void customize(Servlet servlet) {
-        if (servlet instanceof DispatcherServlet) {
-            DispatcherServlet dispatcherServlet = (DispatcherServlet) servlet;
-            WebMvcProperties mvcProperties = dispatcherServlet.getWebApplicationContext().getBean(WebMvcProperties.class);
-            dispatcherServlet.setThrowExceptionIfNoHandlerFound(mvcProperties.isThrowExceptionIfNoHandlerFound());
-            dispatcherServlet.setDispatchOptionsRequest(mvcProperties.isDispatchOptionsRequest());
-            dispatcherServlet.setDispatchTraceRequest(mvcProperties.isDispatchTraceRequest());
-        }
-    }
-
     public static MockSpringMvcServlet getMock() {
         return new MockSpringMvcServlet(SERVLET, SERVLET_CONTEXT);
     }
+
 }

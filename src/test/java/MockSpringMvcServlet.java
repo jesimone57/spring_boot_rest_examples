@@ -22,8 +22,8 @@
  * THE SOFTWARE.
  */
 
-import com.intuit.karate.mock.servlet.MockHttpClient;
 import com.intuit.karate.http.HttpRequestBuilder;
+import com.intuit.karate.mock.servlet.MockHttpClient;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
 import org.springframework.mock.web.MockServletConfig;
